@@ -25,6 +25,8 @@ $(function(){
     }
     if ($("#start_stop").text() == "Stop"){
       $("#start_stop").button().click();
+      var cookieTime = 'solve=' + $('#hours').text() + ':' + $('#minutes').text()+ ':' + $('#seconds').text() + '.' + $('#milliseconds').text() + '';
+      document.cookie = cookieTime;
       return;
     }
     if (e.keyCode == 32) {
