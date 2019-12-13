@@ -1,0 +1,7 @@
+/* Top menu */
+header {
+  display: none;
+}
+#topTabs a {
+  color: white;
+}
