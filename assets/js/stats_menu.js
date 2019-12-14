@@ -1,4 +1,7 @@
 $(function(){
+  // Auto open the stats menu
+  $('#sideTimer').slideToggle('fast');
+  $('#sideTimer').addClass('d-flex');
   // Side timer stats
   $('#menuToggle').click(function() {
     if ($('#sideTimer').is(":visible")) {

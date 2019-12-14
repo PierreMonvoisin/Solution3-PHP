@@ -25,8 +25,9 @@ $(function(){
     }
     if ($("#start_stop").text() == "Stop"){
       $("#start_stop").button().click();
-      var cookieTime = 'solve=' + $('#hours').text() + ':' + $('#minutes').text()+ ':' + $('#seconds').text() + '.' + $('#milliseconds').text() + '';
-      document.cookie = cookieTime;
+      // Add cookie for time
+      // var cookieTime = 'solve=' + $('#hours').text() + ':' + $('#minutes').text()+ ':' + $('#seconds').text() + '.' + $('#milliseconds').text() + '';
+      // document.cookie = cookieTime;
       return;
     }
     if (e.keyCode == 32) {
@@ -44,8 +45,9 @@ $(function(){
     else if($(this).text() == "Stop"){
       $(this).html("<span class='ui-button-text'>Start</span>");
       clearInterval(timeUpdate);
+      addToLog(hours, minutes, seconds, milliseconds);
     }
-  })
+  });
   // Launch main stopwatch function
   function updateTime(prev_hours, prev_minutes, prev_seconds, prev_milliseconds){
     var startTime = new Date();    // fetch current time
@@ -89,4 +91,36 @@ $(function(){
     time = new String(time);    // stringify time
     return new Array(Math.max(length - time.length + 1, 0)).join("0") + time;
   }
-})
+  // Add solve to stats menu
+  function addToLog(hours, minutes, seconds, milliseconds){
+    // Get index of last solve, if none found, attribute 1 to the current index
+    var solveIndex = Number($('#solveList tbody tr:first-child').attr('id'));
+    if (isNaN(solveIndex)){
+      solveIndex = 1;
+    } else {
+      solveIndex = solveIndex + 1;
+    }
+    // Check if hours are null not to display them
+    var newTime = hours + ': ' + minutes + ': ' + seconds + '.' + milliseconds;
+    if (hours == 0){
+      newTime = minutes + ': ' + seconds + '.' + milliseconds;
+    }
+    // Check hours and minutes are null not to display them
+    if (hours == 0 && minutes == 0){
+      newTime = seconds + '.' + milliseconds;
+    }
+    // Delete "no solve" message
+    $('#noSolve').hide();
+    // Create new line to put the informations in solve history
+    var tr, _tr = '</tr>', tdSide, td1, td2, _td = '</td>';
+    tr = '<tr id="' + solveIndex + '">';
+    tdSide = '<td class="py-1 px-2 border border-light border-left-0 border-right-0 border-top-0">';
+    td1 = '<td class="py-1 px-2 border border-light border-top-0">';
+    td2 = '<td class="py-1 px-2 border border-light border-left-0 border-top-0">';
+    $('#solveList tbody').prepend(tr + '\n' + tdSide + '#' + solveIndex + _td + '\n' + td1 + newTime + _td + _tr);
+    // Put solve in solve statistics
+    $('#sideStatIndex').html(solveIndex);
+    $('#sideStatSingle').html(newTime);
+  }
+  $.get( "timer.php", { name: "John", time: "2pm" } );
+});

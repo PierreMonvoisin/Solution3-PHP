@@ -20,7 +20,13 @@
       <button id="menuToggle" type="button" class="btn btn-outline-dark">Stats</button>
       <!-- Scramble -->
       <div class="row text-center m-0">
-        <h2 id="scramble" class="mt-4"><span class="py-2 px-2 border border-dark">Error</span></h2>
+        <h2 id="scramble" class="mt-4"><span class="py-2 px-2 border border-dark">
+          <?php if (isset($_GET['name'])){
+            echo $_GET['name'];
+          } else {
+            echo 'ERROR';
+          }?>
+        </span></h2>
       </div>
       <!-- Timer -->
       <div class="row text-center mx-auto">
@@ -30,15 +36,6 @@
           <span id="seconds">00</span><span>.</span>
           <span id="milliseconds">000</span>
         </h1>
-        <?php
-        function checkCookie(){
-          if (isset($_COOKIE['solve'])){
-            echo $_COOKIE['solve'];
-          } else {
-            echo 'nope';
-          }
-        }
-        checkCookie(); ?>
       </div>
       <!-- Invisible button -->
       <div class="mx-auto" id="controls">

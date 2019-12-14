@@ -143,7 +143,7 @@ $(function(){
   //   $('#scramble').html('<span class="py-2 px-2 border border-dark">' + newScramble + '</span>');
   // }
   // scramble = newScramble;
-  // addToLog(hours, minutes, seconds, milliseconds);
+  // 
   function unfoldTime(time){
     // Turn seconds into milliseconds
     console.log(time);
