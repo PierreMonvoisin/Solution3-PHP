@@ -122,5 +122,5 @@ $(function(){
     $('#sideStatIndex').html(solveIndex);
     $('#sideStatSingle').html(newTime);
   }
-  $.get( "timer.php", { name: "John", time: "2pm" } );
+  // $.get( "timer.php", { name: "John", time: "2pm" } );
 });

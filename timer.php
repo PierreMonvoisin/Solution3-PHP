@@ -21,11 +21,11 @@
       <!-- Scramble -->
       <div class="row text-center m-0">
         <h2 id="scramble" class="mt-4"><span class="py-2 px-2 border border-dark">
-          <?php if (isset($_GET['name'])){
-            echo $_GET['name'];
-          } else {
-            echo 'ERROR';
-          }?>
+          <?php
+          include 'scrambler.php';
+          $scrambler = new Scrambler();
+          echo $scrambler->generate();
+          ?>
         </span></h2>
       </div>
       <!-- Timer -->
