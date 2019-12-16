@@ -20,8 +20,8 @@
       <button id="menuToggle" type="button" class="btn btn-outline-dark">Stats</button>
       <!-- Scramble -->
       <?php
-      if (isset($_GET['name'])){
-        echo $_GET['name'];
+      if (isset($_COOKIE['index'])){
+        echo $_COOKIE['index'];
       } else {
         echo 'proot';
       }

@@ -121,18 +121,18 @@ $(function(){
     // Put solve in solve statistics
     $('#sideStatIndex').html(solveIndex);
     $('#sideStatSingle').html(newTime);
-    loadDoc();
+    // Add index to cookie for test
+    document.cookie = ("index"+ solveIndex +"="+ solveIndex);
+    alert(document.cookie);
   }
-
-  function loadDoc() {
-    var xhttp = new XMLHttpRequest();
-    // xhttp.onreadystatechange = function() {
-    //   if (this.readyState == 4 && this.status == 200) {
-    //     document.getElementById("scramble").innerHTML = this.responseText;
-    //   }
-    // };
-    xhttp.open("GET", "timer.php?name=Paul", true);
-    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send();
-  }
+  // function deleteAllCookies() {
+  //   var cookies = document.cookie.split(";");
+  //
+  //   for (var i = 0; i < cookies.length; i++) {
+  //     var cookie = cookies[i];
+  //     var eqPos = cookie.indexOf("=");
+  //     var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+  //     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  //   }
+  // }
 });
