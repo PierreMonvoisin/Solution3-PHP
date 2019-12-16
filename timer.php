@@ -19,6 +19,13 @@
     <div id="timerBody" class="d-flex flex-column">
       <button id="menuToggle" type="button" class="btn btn-outline-dark">Stats</button>
       <!-- Scramble -->
+      <?php
+      if (isset($_GET['name'])){
+        echo $_GET['name'];
+      } else {
+        echo 'proot';
+      }
+      ?>
       <div class="row text-center m-0">
         <h2 id="scramble" class="mt-4"><span class="py-2 px-2 border border-dark">
           <?php

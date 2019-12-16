@@ -121,6 +121,18 @@ $(function(){
     // Put solve in solve statistics
     $('#sideStatIndex').html(solveIndex);
     $('#sideStatSingle').html(newTime);
+    loadDoc();
   }
-  // $.get( "timer.php", { name: "John", time: "2pm" } );
+
+  function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function() {
+    //   if (this.readyState == 4 && this.status == 200) {
+    //     document.getElementById("scramble").innerHTML = this.responseText;
+    //   }
+    // };
+    xhttp.open("GET", "timer.php?name=Paul", true);
+    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send();
+  }
 });
