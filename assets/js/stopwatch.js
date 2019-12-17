@@ -10,7 +10,7 @@ $(function(){
   if ($("#minutes").html() == '00'){
     $("#minutes, #separatorMinutes").hide();
   }
-  // Reaction to keypress
+  // Indicator that timer is ready
   $(document).keypress(function (e) {
     // Indicator that timer is ready
     if ($('#start_stop').text() == 'Start'){

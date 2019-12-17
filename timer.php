@@ -95,6 +95,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="assets/js/header.js"></script>
   <script src="assets/js/stopwatch.js"></script>
+  <script src="assets/js/scrambler.js"></script>
   <script src="assets/js/averages.js"></script>
   <script src="assets/js/stats_menu.js"></script>
 </body>
