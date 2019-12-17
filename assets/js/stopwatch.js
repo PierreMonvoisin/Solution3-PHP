@@ -111,20 +111,27 @@ $(function(){
     }
     // Delete "no solve" message
     $('#noSolve').hide();
+    // Averages
+    averageOf5(hours, minutes, seconds, milliseconds);
+    averageOf12(hours, minutes, seconds, milliseconds);
+    averageOf50(hours, minutes, seconds, milliseconds);
     // Create new line to put the informations in solve history
     var tr, _tr = '</tr>', tdSide, td1, td2, _td = '</td>';
     tr = '<tr id="' + solveIndex + '">';
     tdSide = '<td class="py-1 px-2 border border-light border-left-0 border-right-0 border-top-0">';
     td1 = '<td class="py-1 px-2 border border-light border-top-0">';
     td2 = '<td class="py-1 px-2 border border-light border-left-0 border-top-0">';
-    $('#solveList tbody').prepend(tr + '\n' + tdSide + '#' + solveIndex + _td + '\n' + td1 + newTime + _td + _tr);
+    $('#solveList tbody').prepend(tr + '\n' + tdSide + '#' + solveIndex + _td + '\n' + td1 + newTime + _td + td2 + average5 + _td + tdSide + average12 + _td + _tr);
     // Put solve in solve statistics
     $('#sideStatIndex').html(solveIndex);
     $('#sideStatSingle').html(newTime);
+    $('#sideStatAo5').html(average5);
+    $('#sideStatAo12').html(average12);
+    $('#sideStatAo50').html(average50);
     // Add index to cookie for test
-    document.cookie = ("index"+ solveIndex +"="+ solveIndex);
-    alert(document.cookie);
+    // document.cookie = ("index"+ solveIndex +"="+ solveIndex);
   }
+  // Delete all cookies from session
   // function deleteAllCookies() {
   //   var cookies = document.cookie.split(";");
   //

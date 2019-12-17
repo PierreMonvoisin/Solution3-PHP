@@ -19,13 +19,7 @@
     <div id="timerBody" class="d-flex flex-column">
       <button id="menuToggle" type="button" class="btn btn-outline-dark">Stats</button>
       <!-- Scramble -->
-      <?php
-      if (isset($_COOKIE['index'])){
-        echo $_COOKIE['index'];
-      } else {
-        echo 'proot';
-      }
-      ?>
+      <!-- <?php var_dump($_COOKIE['index1']) ?> -->
       <div class="row text-center m-0">
         <h2 id="scramble" class="mt-4"><span class="py-2 px-2 border border-dark">
           <?php
@@ -101,6 +95,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="assets/js/header.js"></script>
   <script src="assets/js/stopwatch.js"></script>
+  <script src="assets/js/averages.js"></script>
   <script src="assets/js/stats_menu.js"></script>
 </body>
 </html>
