@@ -58,6 +58,7 @@ html, body {
   height: auto;
   width: 100vw;
   font-size: 2.5vw;
+  cursor: default;
 }
 #timer {
   font-size: 15vw;
