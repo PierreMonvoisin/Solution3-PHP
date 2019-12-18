@@ -3,7 +3,7 @@ $(function(){
   var hours = minutes = seconds = milliseconds = 0;
   var prev_hours = prev_minutes = prev_seconds = prev_milliseconds = undefined;
   var timeUpdate;
-  //Check if hours and/or minutes are null, not to display them
+  // Check if hours and/or minutes are null, not to display them
   if ($("#hours").html() == '00'){
     $("#hours, #separatorHours").hide();
   }
@@ -25,9 +25,6 @@ $(function(){
     }
     if ($("#start_stop").text() == "Stop"){
       $("#start_stop").button().click();
-      // Add cookie for time
-      // var cookieTime = 'solve=' + $('#hours').text() + ':' + $('#minutes').text()+ ':' + $('#seconds').text() + '.' + $('#milliseconds').text() + '';
-      // document.cookie = cookieTime;
       return;
     }
     if (e.keyCode == 32) {
@@ -37,7 +34,7 @@ $(function(){
   // Start/Stop button
   $("#start_stop").button().click(function(){
     // Start button
-    if($(this).text() == "Start"){  // check button label
+    if($(this).text() == "Start"){ // check button label
       $(this).html("<span class='ui-button-text'>Stop</span>");
       updateTime(0,0,0,0);
     }
@@ -46,27 +43,29 @@ $(function(){
       $(this).html("<span class='ui-button-text'>Start</span>");
       clearInterval(timeUpdate);
       addToLog(hours, minutes, seconds, milliseconds);
+      newScramble();
     }
   });
   // Launch main stopwatch function
   function updateTime(prev_hours, prev_minutes, prev_seconds, prev_milliseconds){
-    var startTime = new Date();    // fetch current time
+    var startTime = new Date(); // fetch current time
     timeUpdate = setInterval(function () {
-      var timeElapsed = new Date().getTime() - startTime.getTime();    // calculate the time elapsed in milliseconds
-      // calculate hours
+      // Calculate the time elapsed in milliseconds
+      var timeElapsed = new Date().getTime() - startTime.getTime();
+      // Calculate hours
       hours = parseInt(timeElapsed / 1000 / 60 / 60) + prev_hours;
-      // calculate minutes
+      // Calculate minutes
       minutes = parseInt(timeElapsed / 1000 / 60) + prev_minutes;
       if (minutes > 60) minutes %= 60;
-      // calculate seconds
+      // Calculate seconds
       seconds = parseInt(timeElapsed / 1000) + prev_seconds;
       if (seconds > 60) seconds %= 60;
-      // calculate milliseconds
+      // Calculate milliseconds
       milliseconds = timeElapsed + prev_milliseconds;
       if (milliseconds > 1000) milliseconds %= 1000;
-      // set the stopwatch
+      // Set the stopwatch
       setStopwatch(hours, minutes, seconds, milliseconds);
-    }, 1); // update time in stopwatch after every 1ms
+    }, 1); // Update time in stopwatch every 1ms
   }
   // Set the time in html page
   function setStopwatch(hours, minutes, seconds, milliseconds){
@@ -88,7 +87,7 @@ $(function(){
   }
   // Prepend zeros to the digits in stopwatch
   function prependZero(time, length) {
-    time = new String(time);    // stringify time
+    time = new String(time); // stringify time
     return new Array(Math.max(length - time.length + 1, 0)).join("0") + time;
   }
   // Add solve to stats menu
@@ -111,7 +110,7 @@ $(function(){
     }
     // Delete "no solve" message
     $('#noSolve').hide();
-    // Averages
+    // Launch averages functions
     averageOf5(hours, minutes, seconds, milliseconds);
     averageOf12(hours, minutes, seconds, milliseconds);
     averageOf50(hours, minutes, seconds, milliseconds);

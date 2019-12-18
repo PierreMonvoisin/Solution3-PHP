@@ -1,3 +1,5 @@
+<!-- Access cookies
+<?php var_dump($_COOKIE['index1']) ?> -->
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -19,15 +21,8 @@
     <div id="timerBody" class="d-flex flex-column">
       <button id="menuToggle" type="button" class="btn btn-outline-dark">Stats</button>
       <!-- Scramble -->
-      <!-- <?php var_dump($_COOKIE['index1']) ?> -->
       <div class="row text-center m-0">
-        <h2 id="scramble" class="mt-4"><span class="py-2 px-2 border border-dark">
-          <?php
-          include 'scrambler.php';
-          $scrambler = new Scrambler();
-          echo $scrambler->generate();
-          ?>
-        </span></h2>
+        <h2 id="scramble" class="mt-4"><span class="py-2 px-2 border border-dark">Error</span></h2>
       </div>
       <!-- Timer -->
       <div class="row text-center mx-auto">
