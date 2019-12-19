@@ -21,12 +21,14 @@ function newScramble(){
     if (antePenulMove == move){
       // Verify if the set of three moves are really useless
       if ((move == 'F' && penulMove == 'B') || (move == 'B' && penulMove == 'F') || (move == 'U' && penulMove == 'D') || (move == 'U' && penulMove == 'D') || (move == 'R' && penulMove == 'L') || (move == 'R' && penulMove == 'L')){
-        console.log('useless moves')
+        console.log(antePenulMove + ' ' + penulMove + ' ' + move);
+        console.log('useless moves');
         // Change the move until the problem is solve
         while (move == antePenulMove || move == penulMove){
           move = (faces.sort(() => Math.random() - 0.5))[Math.floor(Math.random() * 6)];
         }
       }
+      console.log(antePenulMove + ' ' + penulMove + ' ' + move);
     }
     // Update the move history
     antePenulMove = penulMove; penulMove = move;
