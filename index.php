@@ -29,14 +29,14 @@
         </li>
       </ul>
     </div>
-    <div class="col-4 pr-0">
-      <input type="text" class="form-control h-100" id="inlineFormInputName2" placeholder="Chercher sur le site ...">
-    </div>
-    <div class="col pr-0">
-      <button type="submit" class="btn bg-taupe-light text-light h-100">Valider</button>
+    <div class="col-5 pr-0">
+      <form class="d-flex mr-1 h-100">
+        <input type="text" class="form-control h-100" id="search" placeholder="Chercher sur le site ...">
+        <input type="submit" class="btn bg-taupe-light text-light h-100 ml-1" value='Valider'>
+      </form>
     </div>
     <div class="col p-0">
-      <button type="submit" class="btn bg-taupe-light h-100"><a href="user.php" class="text-decoration-none text-light stretched-link">Compte</a></button>
+      <button type="submit" class="btn btn-block bg-taupe-light h-100"><a href="user.php" class="text-decoration-none text-light stretched-link">Compte</a></button>
     </div>
   </header>
   <!-- Button -->
@@ -44,15 +44,16 @@
     <h1 class="col-12 mt-5 text-center">Welcome to the Jungle</h1>
     <div class="btn-group top-button-group btn-group-lg mt-5 mb-3 mx-auto col-8" role="group">
       <!-- Top Left -->
-      <button type="button" class="btn btn-success mr-3 py-4"><a href="user.php" class="stretched-link"><img src="https://image.flaticon.com/icons/svg/942/942187.svg" alt="account"></a></button>
+      <button type="button" class="btn btn-success mr-3 py-4" data-toggle="tooltip"
+        data-placement="left" title="Compte Personnel"><a href="user.php" class="stretched-link"><img src="https://image.flaticon.com/icons/svg/942/942187.svg" alt="account"></a></button>
       <!-- Top Right -->
-      <button type="button" class="btn btn-primary py-4"><a href="timer.php" class="stretched-link"><img src="https://image.flaticon.com/icons/svg/149/149322.svg" alt="timer"></a></button>
+      <button type="button" class="btn btn-primary py-4" data-toggle="tooltip" data-placement="right" title="Chronomètre"><a href="timer.php" class="stretched-link"><img src="https://image.flaticon.com/icons/svg/149/149322.svg" alt="timer"></a></button>
     </div>
     <div class="btn-group bottom-button-group btn-group-lg mb-3 mx-auto col-8" role="group">
       <!-- Bottom Left -->
-      <button type="button" class="btn btnTooLarge btn-warning text-white mr-3 py-4"><a href="lesson.php" class="stretched-link"><img class="left-image" src="https://image.flaticon.com/icons/svg/1575/1575104.svg" alt="lessons"></a></button>
+      <button type="button" class="btn btnTooLarge btn-warning text-white mr-3 py-4" data-toggle="tooltip" data-placement="left" title="Apprentissage"><a href="lesson.php" class="stretched-link"><img class="left-image" src="https://image.flaticon.com/icons/svg/1575/1575104.svg" alt="lessons"></a></button>
       <!-- Bottome Right -->
-      <button type="button" class="btn btn-danger py-4"><a href="multiplayer.php" class="stretched-link"><img class="right-image" src="https://image.flaticon.com/icons/svg/978/978012.svg" alt="multiplayer"></a></button>
+      <button type="button" class="btn btn-danger py-4" data-toggle="tooltip" data-placement="right" title="Multijoueurs"><a href="multiplayer.php" class="stretched-link"><img class="right-image" src="https://image.flaticon.com/icons/svg/978/978012.svg" alt="multiplayer"></a></button>
     </div>
   </div>
   <!-- Mandatory last script links -->
@@ -60,5 +61,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="assets/js/header.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

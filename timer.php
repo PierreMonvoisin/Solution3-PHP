@@ -33,6 +33,16 @@
           <span id="milliseconds">000</span>
         </h1>
       </div>
+      <div class="row text-center mx-auto mb-2 mt-1">
+        <h2 class="p-0 m-0">
+          <span id="averageOf5">Average of 5 : <span>-</span></span>
+        </h2>
+      </div>
+      <div class="row text-center mx-auto">
+        <h2 class="p-0 m-0">
+          <span id="averageOf12">Average of 12 : <span>-</span></span>
+        </h2>
+      </div>
       <!-- Invisible button -->
       <div class="mx-auto" id="controls">
         <button id="start_stop" class="btn btn-light">Start</button>
@@ -67,7 +77,7 @@
         </div>
         <!-- Solve history -->
         <table id="solveList" class="table text-center mb-0">
-          <thead class="thead-light">
+          <thead class="bg-light">
             <tr>
               <th class="py-1 px-2">N°</th>
               <th class="py-1 px-2">Time</th>
@@ -89,9 +99,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="assets/js/header.js"></script>
+  <script src="assets/js/timer.js"></script>
   <script src="assets/js/stopwatch.js"></script>
-  <script src="assets/js/scrambler.js"></script>
+  <script src="assets/js/localstorage.js"></script>
   <script src="assets/js/averages.js"></script>
-  <script src="assets/js/stats_menu.js"></script>
+  <script src="assets/js/scrambler.js"></script>
 </body>
 </html>

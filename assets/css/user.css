@@ -22,7 +22,7 @@ html, body {
 /* Personnalised color palette */
 #topAvatar {
   border-radius: 50%;
-  height: 18vh;
+  height: 15vh;
 }
 #userStats {
   height: 100vh;
@@ -31,6 +31,43 @@ html, body {
   width: 100%;
   height: auto;
 }
+#friends {
+  max-height: 45vh;
+  overflow: hidden;
+}
+#friends .card-body {
+  height: 42vh;
+  overflow-y: scroll;
+}
+#history {
+  max-height: 45vh;
+  overflow: hidden;
+}
+#history .card-body {
+  height: 42vh;
+  overflow-y: scroll;
+}
 #history td {
   background-color: white;
+}
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  #overview .card-body {
+    flex-direction: column;
+  }
+  #chartContainer {
+    margin-top: 1vh;
+    height: 35vh;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #overview, #friends, #history {
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

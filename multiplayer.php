@@ -16,7 +16,7 @@
     <div class="row mainRow mb-3">
       <div class="mx-auto card-deck col-md-6">
         <!-- Top left card - Algorithm of the week -->
-        <div id="algoCard" class="card mb-0 border-blue">
+        <div id="algoCard" class="card mb-0">
           <h3 class="card-header pt-2 text-center bg-blue text-white">Alg of the week</h3>
           <div class="card-body py-0">
             <p class="card-title text-center border border-dark border-left-0 border-right-0 m-0">F' L B2 R D2 L2 D2 L' B2 D2 R' F2 R2 F' D' F' R2 D' B U2 F</p>
@@ -51,7 +51,7 @@
       </div>
       <!-- Top right card - Online friends -->
       <div class="mx-auto card-deck col-md-6">
-        <div id="friendsCard" class="card border-orange">
+        <div id="friendsCard" class="card">
           <h3 class="card-header text-center bg-orange text-white">Friends</h3>
           <div class="card-body">
             <ul class="list-group">
@@ -79,7 +79,7 @@
     <!-- Bottom left card - Battle mode -->
     <div class="row mainRow">
       <div class="mx-auto card-deck col-md-6">
-        <div id="battleCard" class="card border-red">
+        <div id="battleCard" class="card">
           <h3 class="card-header text-center bg-red text-white">Battle mode</h3>
           <div class="card-body py-0">
             <div class="card-deck h-100 align-content-center">
@@ -101,7 +101,7 @@
       </div>
       <!-- Bottom right card - News -->
       <div class="mx-auto card-deck col-md-6">
-        <div id="newsCard" class="card border-green">
+        <div id="newsCard" class="card">
           <h3 class="card-header text-center bg-green text-white">News</h3>
           <div class="card-body">
             <div class="jumbotron py-0 mb-0">

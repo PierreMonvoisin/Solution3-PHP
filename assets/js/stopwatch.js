@@ -114,6 +114,13 @@ $(function(){
     averageOf5(hours, minutes, seconds, milliseconds);
     averageOf12(hours, minutes, seconds, milliseconds);
     averageOf50(hours, minutes, seconds, milliseconds);
+
+    // ADD CHECK OF LOCAL HISTORY HERE
+    // Check for solveIndex, newTime, average5, average12, average50
+
+    // Put averages under timer
+    $('#averageOf5 span').text(average5);
+    $('#averageOf12 span').text(average12);
     // Create new line to put the informations in solve history
     var tr, _tr = '</tr>', tdSide, td1, td2, _td = '</td>';
     tr = '<tr id="' + solveIndex + '">';
@@ -127,18 +134,7 @@ $(function(){
     $('#sideStatAo5').html(average5);
     $('#sideStatAo12').html(average12);
     $('#sideStatAo50').html(average50);
-    // Add index to cookie for test
-    // document.cookie = ("index"+ solveIndex +"="+ solveIndex);
+    // Call the function to add to the localStorage
+    addToStorage(solveIndex, newTime, average5, average12, average50);
   }
-  // Delete all cookies from session
-  // function deleteAllCookies() {
-  //   var cookies = document.cookie.split(";");
-  //
-  //   for (var i = 0; i < cookies.length; i++) {
-  //     var cookie = cookies[i];
-  //     var eqPos = cookie.indexOf("=");
-  //     var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-  //     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  //   }
-  // }
 });
