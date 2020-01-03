@@ -67,6 +67,43 @@ $(function(){
       setStopwatch(hours, minutes, seconds, milliseconds);
     }, 1); // Update time in stopwatch every 1ms
   }
+  // Check for solves in the localStorage to display them on load
+  if (localStorage.getItem('indexLog')){
+    currentIndex = Number(JSON.parse(localStorage.getItem('indexLog')));
+    // Delete " no solve " message
+    $('#noSolve').remove();
+    // Add solves in localStorage to history
+    var index, single, ao5, ao12, ao50;
+    for (var numberOfSolve = Number(currentIndex); numberOfSolve > 0; numberOfSolve--){
+      // ( typeof number )
+      index = Number(JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`)));
+      single = Number(JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`)));
+      ao5 = Number(JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`)));
+      ao12 = Number(JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`)));
+      isNaN(ao5) ? ao5 = '-': ao5 = parseFloat(ao5).toFixed(3);
+      // Check if averages are empty
+      // ParseFloat to turn string to number and keep 3 numbers after the dot
+      isNaN(ao12) ? ao12 = '-': ao12 = parseFloat(ao12).toFixed(3);
+      // Create new line to put the informations in solve history
+      var tr, _tr = '</tr>', tdSide, td1, td2, _td = '</td>';
+      tr = '<tr id="' + index + '">';
+      tdSide = '<td class="py-1 px-2 border border-light border-left-0 border-right-0 border-top-0">';
+      td1 = '<td class="py-1 px-2 border border-light border-top-0">';
+      td2 = '<td class="py-1 px-2 border border-light border-left-0 border-top-0">';
+      $('#solveList tbody').append(tr + '\n' + tdSide + '#' + index + _td + '\n' + td1 + parseFloat(single).toFixed(3) + _td + '\n' + td2 + ao5 + _td + '\n' + tdSide + ao12 + _td + _tr);
+      // Do this at the last solve
+      if (numberOfSolve == currentIndex){
+        ao50 = Number(JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`)));
+        isNaN(ao50) ? ao50 = '-': ao50 = parseFloat(ao50).toFixed(3);
+        // Put solve in solve statistics
+        $('#sideStatIndex').html(index);
+        $('#sideStatSingle').html(single);
+        $('#sideStatAo5').html(ao5);
+        $('#sideStatAo12').html(ao12);
+        $('#sideStatAo50').html(ao50);
+      }
+    }
+  }
   // Set the time in html page
   function setStopwatch(hours, minutes, seconds, milliseconds){
     $("#hours").html(prependZero(hours, 2));
