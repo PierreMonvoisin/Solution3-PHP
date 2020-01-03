@@ -49,7 +49,7 @@
       </div>
       <div id="sideTimer" class="row m-0 bg-secondary">
         <div id="sideStats">
-          <p class="bg-light font-weight-bold py-1 text-center mb-0">Statistique</p>
+          <p id="statsInMenu" class="bg-light font-weight-bold text-center mb-0">Statistique</p>
           <div class="d-flex py-2 text-white">
             <div class="text-left ml-4 mr-0 w-50">
               <div>Numéro : </div>

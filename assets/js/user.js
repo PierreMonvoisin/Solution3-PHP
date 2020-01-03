@@ -65,6 +65,8 @@ $(function(){
     $('#worstAo50').text(worstAo50);
     // Delete " no solve " message
     $('#noSolve').hide();
+    // Render chart to add DataPoints (necessary !)
+    renderChart();
     // Add solves in localStorage to history
     for (var numberOfSolve = Number(lastIndex); numberOfSolve > 0; numberOfSolve--){
       var index = JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`));
@@ -79,6 +81,10 @@ $(function(){
       isNaN(ao50) ? ao50 = '-': ao50 = parseFloat(ao50).toFixed(3);
       var tr = '<tr id="' + index + '">', _tr = '</tr>', td  = '<td class="py-2">', _td = '</td>';
       $('#history tbody').append(tr + '\n' + td + '#' + index + _td + '\n' + td + parseFloat(single).toFixed(3) + _td + '\n' + td + ao5 + _td + '\n' + td + ao12 + _td + '\n' + td + ao50 + _td + _tr);
+      // Add solves to datapoints for the chart
+      if (numberOfSolve > (Number(lastIndex) - 13)){
+          addDataPoints(index, parseFloat(single), parseFloat(ao5), parseFloat(ao12), parseFloat(ao50));
+      }
     }
   }
 });

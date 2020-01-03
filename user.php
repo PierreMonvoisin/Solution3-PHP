@@ -20,9 +20,9 @@
   <div id="userStats" class="container w-100">
     <div class="row justify-content-between">
       <!-- General info -->
-      <div id="overview" class="card my-2 col-12 bg-copper shadow">
-        <h5 class="text-center text-white pt-1">Statistiques</h5>
-        <div class="card-body py-1 userStat d-flex justify-content-around">
+      <div id="overview" class="card my-2 col-12 px-0 bg-copper shadow">
+        <h5 class="text-center text-white px-0 pt-1">Statistiques</h5>
+        <div class="card-body py-1 px-0 userStat d-flex justify-content-around">
           <table class="col-5 table bg-light mb-0 text-center">
             <thead>
               <tr>
@@ -58,12 +58,11 @@
             </tbody>
           </table>
           <!-- Chart -->
-          <div class="col-6 p-0" id="chartContainer">
-          </div>
+          <div class="col-6 p-0" id="chartContainer"></div>
         </div>
       </div>
       <!-- Online Friends -->
-      <div id="friends" class="card col-xl-3 col-lg-4 col-md-5 my-2 bg-copper shadow">
+      <div id="friends" class="card col-xl-3 col-lg-4 col-md-5 my-2 px-0 bg-copper shadow">
         <div class="card-body p-2 userStat">
           <h5 class="text-center text-white">Liste d'amis</h5>
           <div class="card">
@@ -89,7 +88,7 @@
         </div>
       </div>
       <!-- History log -->
-      <div id="history" class="card col-xl-8 col-md-7 col-12 my-2 bg-copper shadow">
+      <div id="history" class="card col-xl-8 col-md-7 col-12 my-2 px-0 bg-copper shadow">
         <div class="card-body userStat p-2">
           <h5 class="text-center text-white">Historique</h5>
           <table class="table text-center">
@@ -118,5 +117,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="assets/js/header.js"></script>
   <script src="assets/js/user.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="assets/js/graph.js"></script>
 </body>
 </html>

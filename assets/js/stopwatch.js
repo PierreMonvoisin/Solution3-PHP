@@ -99,7 +99,9 @@ $(function(){
         $('#sideStatIndex').html(index);
         $('#sideStatSingle').html(single);
         $('#sideStatAo5').html(ao5);
+        $('#averageOf5 span').html(ao5);
         $('#sideStatAo12').html(ao12);
+        $('#averageOf12 span').html(ao12);
         $('#sideStatAo50').html(ao50);
       }
     }
