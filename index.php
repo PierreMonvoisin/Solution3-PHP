@@ -41,7 +41,7 @@
   </header>
   <!-- Button -->
   <div id="mainBody" class="row m-0">
-    <h1 class="col-12 mt-5 text-center">Welcome to the Jungle</h1>
+    <h1 id="mainTitle" class="col-12 mt-5 text-center">Welcome to the Jungle</h1>
     <div class="btn-group top-button-group btn-group-lg mt-5 mb-3 mx-auto col-8" role="group">
       <!-- Top Left -->
       <button type="button" class="btn btn-success mr-3 py-4" data-toggle="tooltip"

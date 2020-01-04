@@ -1,7 +1,10 @@
 html, body {
   max-width: 100vw;
   scroll-behavior: smooth;
-  overflow: hidden;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 /* Personnalised color palette */
 .bg-silver {
@@ -22,29 +25,35 @@ html, body {
 /* Personnalised color palette */
 #topAvatar {
   border-radius: 50%;
-  height: 15vh;
+  height: 17vh;
 }
 #userStats {
   height: 100vh;
+}
+#overview {
+  height: 50vh;
+}
+#overviewStats {
+  height: 100%;
 }
 #chartContainer {
   width: 100%;
   height: auto;
 }
 #friends {
-  max-height: 45vh;
+  max-height: 55vh;
   overflow: hidden;
 }
 #friends .card-body {
-  height: 42vh;
+  height: 52vh;
   overflow-y: scroll;
 }
 #history {
-  max-height: 45vh;
+  max-height: 55vh;
   overflow: hidden;
 }
 #history .card-body {
-  height: 42vh;
+  height: 52vh;
   overflow-y: scroll;
 }
 #history td {

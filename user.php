@@ -14,7 +14,8 @@
   <?php include 'header.php'; ?>
   <div class="container-fluid w-100">
     <div class="row bg-taupe">
-      <img id="topAvatar" class="mx-auto my-2 bg-light border border-dark" src="https://image.flaticon.com/icons/svg/163/163801.svg" alt="Avatar photo">
+      <img id="topAvatar" class="mx-auto my-2 bg-light border border-dark" src="https://image.flaticon.com/icons/svg/163/163801.svg" alt="Avatar Picture">
+      <h1 class="col-6 text-center text-white my-auto pr-5 pl-0">Compte Personnel</h1>
     </div>
   </div>
   <div id="userStats" class="container w-100">
@@ -23,7 +24,7 @@
       <div id="overview" class="card my-2 col-12 px-0 bg-copper shadow">
         <h5 class="text-center text-white px-0 pt-1">Statistiques</h5>
         <div class="card-body py-1 px-0 userStat d-flex justify-content-around">
-          <table class="col-5 table bg-light mb-0 text-center">
+          <table id="overviewStats" class="col-5 table bg-light mb-0 text-center">
             <thead>
               <tr>
                 <th>/</th>

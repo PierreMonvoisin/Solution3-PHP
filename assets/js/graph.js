@@ -6,38 +6,53 @@ var chart = new CanvasJS.Chart('chartContainer', {
     text: 'Graphique des 12 dernières résolutions'
   },
   axisY :{
-    includeZero: false,
-    labelFontSize: 15
+    title: "Temps",
+    titleFontSize: 15,
+    titleFontColor: "black",
+    labelFontSize: 14
   },
   axisX :{
-    prefix: 'N° ',
-    labelFontSize: 15
+    title: "Résolutions",
+    titleFontSize: 15,
+    titleFontColor: "black",
+    labelFontSize: 14,
+    gridDashType: "dot",
+		gridThickness: 1,
+    prefix: 'N° '
   },
   toolTip: {
-    shared: true
+    shared: true,
+    animationEnabled: true
   },
   legend: {
-    fontSize: 15
+    fontSize: 15,
+    itemmouseover: function(e) {
+			e.dataSeries.lineThickness = e.chart.data[e.dataSeriesIndex].lineThickness * 2;
+			e.dataSeries.markerSize = e.chart.data[e.dataSeriesIndex].markerSize + 2;
+			e.chart.render();
+		},
+		itemmouseout: function(e) {
+			e.dataSeries.lineThickness = e.chart.data[e.dataSeriesIndex].lineThickness / 2;
+			e.dataSeries.markerSize = e.chart.data[e.dataSeriesIndex].markerSize - 2;
+			e.chart.render();
+		},
   },
   data: [{
     type: 'spline',
     showInLegend: true,
     name: 'Single',
     dataPoints: []
-  },
-  {
+  },{
     type: 'spline',
     showInLegend: true,
     name: 'Average of 5',
     dataPoints: []
-  },
-  {
+  },{
     type: 'spline',
     showInLegend: true,
     name: 'Average of 12',
     dataPoints: []
-  },
-  {
+  },{
     type: 'spline',
     showInLegend: true,
     name: 'Average of 50',

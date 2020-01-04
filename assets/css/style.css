@@ -23,6 +23,10 @@ body {
   background-color: #463730;
 }
 /* Personnalised color palette */
+/* Title */
+#mainTitle {
+  cursor: default;
+}
 /* Buttons */
 .top-button-group img {
   width: 100px;
