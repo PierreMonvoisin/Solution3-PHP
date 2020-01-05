@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/userAuthorization.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body class="bg-gainsboro">
@@ -56,11 +57,14 @@
       <button type="button" class="btn btn-danger py-4" data-toggle="tooltip" data-placement="right" title="Multijoueurs"><a href="multiplayer.php" class="stretched-link"><img class="right-image" src="https://image.flaticon.com/icons/svg/978/978012.svg" alt="multiplayer"></a></button>
     </div>
   </div>
+  <?php // Local storage authorization modal
+  include 'userAuthorization.php' ?>
   <!-- Mandatory last script links -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="assets/js/header.js"></script>
+  <script src="assets/js/userAuthorization.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
