@@ -6,23 +6,6 @@ html, body {
 body {
   max-height: 100vh;
 }
-/* Personnalised color palette */
-.bg-silver {
-  background-color: #C1C1C1;
-}
-.bg-gainsboro {
-  background-color: #E8DCD8;
-}
-.bg-copper {
-  background-color: #BF6B44;
-}
-.bg-taupe-light {
-  background-color: #7A6155;
-}
-.bg-taupe {
-  background-color: #463730;
-}
-/* Personnalised color palette */
 #topPagination img {
   width: 50px;
 }

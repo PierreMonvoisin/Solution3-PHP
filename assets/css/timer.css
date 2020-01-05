@@ -3,23 +3,6 @@ html, body {
   scroll-behavior: smooth;
   overflow: hidden;
 }
-/* Personnalised color palette */
-.bg-silver {
-  background-color: #C1C1C1;
-}
-.bg-khaki {
-  background-color: #D5B9AD;
-}
-.bg-copper {
-  background-color: #BF6B44;
-}
-.bg-taupe-light {
-  background-color: #7A6155;
-}
-.bg-taupe {
-  background-color: #463730;
-}
-/* Personnalised color palette */
 #menuToggle {
   margin-top: 1%;
   margin-left: 5%;

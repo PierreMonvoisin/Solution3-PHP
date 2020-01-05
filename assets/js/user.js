@@ -87,4 +87,6 @@ $(function(){
       }
     }
   }
+  // Render chart on page load
+  renderChart();
 });

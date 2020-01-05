@@ -7,47 +7,6 @@ html, body {
 body {
   max-height: 100vh;
 }
-/* Personnalised color palette */
-.bg-silver {
-  background-color: #C1C1C1;
-}
-.bg-gainsboro {
-  background-color: #E8DCD8;
-}
-.bg-copper {
-  background-color: #BF6B44;
-}
-.bg-taupe-light {
-  background-color: #7A6155;
-}
-.bg-taupe {
-  background-color: #463730;
-}
-.bg-blue {
-  background-color: #0042A5;
-}
-.bg-green {
-  background-color: #009B48;
-}
-.bg-red {
-  background-color: #ED0427;
-}
-.bg-orange {
-  background-color: #E55000;
-}
-.border-blue {
-  border: 4px ridge #0042A5;
-}
-.border-green {
-  border: 4px ridge #009B48;
-}
-.border-red {
-  border: 4px ridge #ED0427;
-}
-.border-orange {
-  border: 4px ridge #E55000;
-}
-/* Personnalised color palette */
 #algoCard, #friendsCard, #newsCard, #battleCard {
   height: 47vh;
 }
