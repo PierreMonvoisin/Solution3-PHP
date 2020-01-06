@@ -13,25 +13,25 @@
     <link rel="stylesheet" type="text/css" href="assets/css/userAuthorization.css">
     <link rel="stylesheet" type="text/css" href="assets/css/learningMenu.css">
 </head>
-<body class="bg-gainsboro">
+<body class="bg-silver">
 <!-- Header -->
 <?php include 'header.php'; ?>
-<div id="mainMenu" class="container">
-    <div class="row">
-        <div class="col-10 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-outline-primary">Comment résoudre le 3x3</button>
+<div id="mainMenu" class="container-fluid d-flex">
+    <div class="row w-100 m-auto">
+        <div class="col-8 mx-auto my-2">
+            <button type="button" class="btn btn-block btn-primary py-3">Comment résoudre un 3x3</button>
         </div>
-        <div class="col-10 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-outline-light">La méthode CFOP</button>
+        <div class="col-8 mx-auto my-2">
+            <button type="button" class="btn btn-block btn-info py-3">La méthode CFOP</button>
         </div>
-        <div class="col-10 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-outline-warning">Notation des mélanges</button>
+        <div class="col-8 mx-auto my-2">
+            <button type="button" class="btn btn-block btn-warning py-3">Notation des mélanges</button>
         </div>
-        <div class="col-10 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-outline-success">Listes d'algorithmes</button>
+        <div class="col-8 mx-auto my-2">
+            <button type="button" class="btn btn-block btn-success py-3">Listes d'algorithmes</button>
         </div>
-        <div class="col-10 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-outline-danger">CFOP avancé</button>
+        <div class="col-8 mx-auto my-2">
+            <button type="button" class="btn btn-block btn-danger py-3">CFOP avancé</button>
         </div>
     </div>
 </div>
