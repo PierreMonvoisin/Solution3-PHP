@@ -29,6 +29,9 @@
 .bg-orange {
   background-color: #E55000;
 }
+.bg-yellow {
+  background-color: #FFD500;
+}
 .border-blue {
   border: 4px ridge #0042A5;
 }
@@ -40,4 +43,7 @@
 }
 .border-orange {
   border: 4px ridge #E55000;
+}
+.border-yellow {
+  border: 4px ridge #FFD500;
 }
