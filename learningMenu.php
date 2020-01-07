@@ -16,22 +16,18 @@
 <body class="bg-silver">
 <!-- Header -->
 <?php include 'header.php'; ?>
-<div id="mainMenu" class="container-fluid d-flex">
-    <div class="row w-100 m-auto">
-        <div class="col-8 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-primary py-3">Comment résoudre un 3x3</button>
+<div id="mainMenu" class="container-fluid p-0">
+    <div class="row w-100 p-0 m-0">
+        <div class="col p-0 m-0">
+            <button id="topLeft" type="button" class="btn btn-primary"></button>
+            <button id="bottomLeft" type="button" class="btn btn-success"></button>
         </div>
-        <div class="col-8 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-info py-3">La méthode CFOP</button>
+        <div class="col-9 bg-secondary">
+
         </div>
-        <div class="col-8 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-warning py-3">Notation des mélanges</button>
-        </div>
-        <div class="col-8 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-success py-3">Listes d'algorithmes</button>
-        </div>
-        <div class="col-8 mx-auto my-2">
-            <button type="button" class="btn btn-block btn-danger py-3">CFOP avancé</button>
+        <div class="col p-0 ml-auto mr-0 my-0">
+            <button id="topRight" type="button" class="btn btn-danger"></button>
+            <button id="bottomRight" type="button" class="btn btn-warning"></button>
         </div>
     </div>
 </div>

@@ -3,18 +3,40 @@ html, body {
     scroll-behavior: smooth;
     overflow: hidden;
 }
-body, #mainMenu {
+body, #mainMenu, #mainMenu > .row {
     height: 100vh;
 }
+#mainMenu {
+    overflow: hidden;
+}
 #mainMenu button {
-    -webkit-box-shadow: 4px 6px 2px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 4px 6px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: 4px 6px 2px rgba(0, 0, 0, 0.5);
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50%;
     outline: none;
+    position: absolute;
 }
 #mainMenu button:active {
-    -webkit-box-shadow: 2px  2px 2px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
     transform: scale(0.99);
+}
+#topLeft {
+    box-shadow: 4px 6px 2px rgba(0, 0, 0, 0.5);
+    top: -25vh;
+    left: -25vh;
+}
+#topRight {
+    box-shadow: -3px 6px 2px rgba(0, 0, 0, 0.5);
+    top: -25vh;
+    right: -25vh;
+}
+#bottomLeft {
+    box-shadow: 4px -5px 2px rgba(0, 0, 0, 0.5);
+    bottom: -25vh;
+    left: -25vh;
+}
+#bottomRight {
+    box-shadow: -4px -5px 2px rgba(0, 0, 0, 0.5);
+    bottom: -25vh;
+    right: -25vh
 }
