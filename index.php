@@ -54,7 +54,7 @@
     </div>
     <div class="btn-group bottom-button-group btn-group-lg mb-3 mx-auto col-8" role="group">
       <!-- Bottom Left -->
-      <button type="button" class="btn btnTooLarge btn-warning text-white mr-3 py-4" data-toggle="tooltip" data-placement="left" title="Apprentissage"><a href="lesson.php" class="stretched-link"><img class="left-image" src="https://image.flaticon.com/icons/svg/1575/1575104.svg" alt="lessons"></a></button>
+      <button type="button" class="btn btnTooLarge btn-warning text-white mr-3 py-4" data-toggle="tooltip" data-placement="left" title="Apprentissage"><a href="learningMenu.php" class="stretched-link"><img class="left-image" src="https://image.flaticon.com/icons/svg/1575/1575104.svg" alt="lessons"></a></button>
       <!-- Bottome Right -->
       <button type="button" class="btn btn-danger py-4" data-toggle="tooltip" data-placement="right" title="Multijoueurs"><a href="multiplayer.php" class="stretched-link"><img class="right-image" src="https://image.flaticon.com/icons/svg/978/978012.svg" alt="multiplayer"></a></button>
     </div>
