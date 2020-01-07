@@ -2,15 +2,11 @@
 <html lang="fr" dir="ltr">
 <head>
   <!-- ³ = alt + 0179 -->
-  <title>Leçons - Solution³</title>
+  <title>Leçon Example - Solution³</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="assets/css/scrollbar.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/colorPalette.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/userAuthorization.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/lesson.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/lessons/lessonExample.css">
 </head>
 <body class="bg-gainsboro">
   <!-- Top pagination  -->
@@ -46,6 +42,7 @@
               Some quick example text to build on the card title
               and make up the bulk of the card's content.
             </p>
+            <img class="lessonImage" src="https://image.flaticon.com/icons/svg/2285/2285806.svg" alt="cube">
           </div>
         </div>
         <img class="mx-auto" src="https://image.flaticon.com/icons/svg/59/59690.svg" alt="Down arrow">
@@ -67,20 +64,16 @@
                 Some quick example text to build on the card title
                 and make up the bulk of the card's content.
               </p>
-              <img class="lessonImage" src="https://image.flaticon.com/icons/svg/2285/2285806.svg" alt="cube">
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <?php // Local storage authorization modal
-  include 'userAuthorization.php'; ?>
   <!-- Mandatory last script links -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="assets/js/header.js"></script>
-  <script src="assets/js/userAuthorization.js"></script>
+  <!-- <script src="../assets/js/lessons/lessonExample.js"></script> -->
 </body>
 </html>

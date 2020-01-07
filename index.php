@@ -25,7 +25,7 @@
           <a class="nav-link" href="timer.php">Timer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="lesson.php">Leçons</a>
+          <a class="nav-link" href="learningMenu.php">Leçons</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="multiplayer.php">Multi-joueurs</a>
