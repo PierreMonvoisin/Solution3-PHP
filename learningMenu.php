@@ -19,15 +19,15 @@
 <div id="mainMenu" class="container-fluid p-0">
     <div class="row w-100 p-0 m-0">
         <div class="col p-0 m-0">
-            <button id="topLeft" type="button" class="btn btn-primary"></button>
-            <button id="bottomLeft" type="button" class="btn btn-success"></button>
+            <button id="TopLeft" type="button" class="btn bg-blue"></button>
+            <button id="BottomLeft" type="button" class="btn btn-light"></button>
         </div>
-        <div class="col-9 bg-secondary">
-
+        <div id="mainLesson" class="col-9">
+            <?php include 'lesson.php' ?>
         </div>
         <div class="col p-0 ml-auto mr-0 my-0">
-            <button id="topRight" type="button" class="btn btn-danger"></button>
-            <button id="bottomRight" type="button" class="btn btn-warning"></button>
+            <button id="TopRight" type="button" class="btn bg-green"></button>
+            <button id="BottomRight" type="button" class="btn bg-yellow"></button>
         </div>
     </div>
 </div>
@@ -39,5 +39,6 @@ include 'userAuthorization.php'; ?>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="assets/js/header.js"></script>
 <script src="assets/js/userAuthorization.js"></script>
+<script src="assets/js/learningMenu.js"></script>
 </body>
 </html>

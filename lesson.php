@@ -13,8 +13,6 @@
   <link rel="stylesheet" type="text/css" href="assets/css/lesson.css">
 </head>
 <body class="bg-gainsboro">
-  <!-- Header -->
-  <?php include 'header.php'; ?>
   <!-- Top pagination  -->
   <div id="pageBody" class="container-fluid">
     <div id="topPagination" class="row mx-0 my-4 w-100 border border-dark">
