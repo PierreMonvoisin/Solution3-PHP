@@ -17,14 +17,18 @@ function newScramble(){
     setLetter();
   }
   function setLetter(){
+    console.log(antePenulMove + ' ' + penulMove + ' ' + move);
     // Extra security not to have "useless moves"
     if (antePenulMove == move){
       // Verify if the set of three moves are really useless
-      if ((move == 'F' && penulMove == 'B') || (move == 'B' && penulMove == 'F') || (move == 'U' && penulMove == 'D') || (move == 'U' && penulMove == 'D') || (move == 'R' && penulMove == 'L') || (move == 'R' && penulMove == 'L')){
+      if ((move == 'F' && penulMove == 'B') || (move == 'B' && penulMove == 'F') || (move == 'D' && penulMove == 'U') || (move == 'U' && penulMove == 'D') || (move == 'R' && penulMove == 'L') || (move == 'L' && penulMove == 'R')){
+        console.log('useless move');
+        console.log(antePenulMove + ' ' + penulMove + ' ' + move);
         // Change the move until the problem is solve
         while (move == antePenulMove || move == penulMove){
           move = (faces.sort(() => Math.random() - 0.5))[Math.floor(Math.random() * 6)];
         }
+        console.log(antePenulMove + ' ' + penulMove + ' ' + move);
       }
     }
     // Update the move history
