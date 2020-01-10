@@ -10,6 +10,7 @@ body, #mainMenu, #mainMenu > .row {
 }
 #mainMenu {
   overflow: hidden;
+  position: relative;
 }
 #TopLeft, #TopRight, #BottomLeft, #BottomRight {
   width: 50vh;
@@ -17,6 +18,7 @@ body, #mainMenu, #mainMenu > .row {
   border-radius: 50%;
   outline: none;
   position: absolute;
+  z-index: 500;
 }
 #TopLeft:active, #TopRight:active, #BottomLeft:active, #BottomRight:active {
   transform: scale(0.99);

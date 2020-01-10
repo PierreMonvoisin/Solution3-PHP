@@ -26,4 +26,10 @@ $(function () {
       // Bottom Right
     }
   })
+  $('.closeButton').click(function() {
+    $('#myModal').modal('hide');
+    $('html, body').animate({
+      scrollTop: $("#mainLesson").offset().top
+    }, 2000);
+  });
 });
