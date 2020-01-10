@@ -1,22 +1,24 @@
 html, body {
   max-width: 100vw;
+  /*noinspection CssBrowserCompatibilityForProperties*/
   scroll-behavior: smooth;
   overflow: hidden;
 }
 body, #mainMenu, #mainMenu > .row {
   height: 100vh;
+  max-height: 100vh;
 }
 #mainMenu {
   overflow: hidden;
 }
-#mainMenu button {
+#TopLeft, #TopRight, #BottomLeft, #BottomRight {
   width: 50vh;
   height: 50vh;
   border-radius: 50%;
   outline: none;
   position: absolute;
 }
-#mainMenu button:active {
+#TopLeft:active, #TopRight:active, #BottomLeft:active, #BottomRight:active {
   transform: scale(0.99);
 }
 /* Top Left button */
