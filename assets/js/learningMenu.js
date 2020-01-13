@@ -1,6 +1,4 @@
 $(function () {
-  // Enable tooltip
-  $('[data-toggle="tooltip"]').tooltip();
   // Zoom on the button on list mousover
   $('#default li').mouseover(function(){
     var classList = $(this)[0].className.split(' ');
@@ -26,10 +24,4 @@ $(function () {
       // Bottom Right
     }
   })
-  $('.closeButton').click(function() {
-    $('#myModal').modal('hide');
-    $('html, body').animate({
-      scrollTop: $("#mainLesson").offset().top
-    }, 2000);
-  });
 });

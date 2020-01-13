@@ -18,7 +18,7 @@ body, #mainMenu, #mainMenu > .row {
   border-radius: 50%;
   outline: none;
   position: absolute;
-  z-index: 500;
+  z-index: 3;
 }
 #TopLeft:active, #TopRight:active, #BottomLeft:active, #BottomRight:active {
   transform: scale(0.99);

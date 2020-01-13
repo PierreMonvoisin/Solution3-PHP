@@ -9,19 +9,41 @@ $(function(){
   }
   if ($("#minutes").html() == '00'){
     $("#minutes, #separatorMinutes").hide();
+  } else {
+    $("#minutes, #separatorMinutes").show();
   }
   // Indicator that timer is ready
+  var timerReady, timerValidity = false;
+  var delay = 400; // Delay ( in milliseconds ) between the key press and the timer ready state
   $(document).keypress(function (e) {
     // Indicator that timer is ready
     if ($('#start_stop').text() == 'Start'){
       if (e.keyCode == 32) {
-        $("#timer").addClass('text-success');
+        // Check if the user is holding the spacebar
+        if(! $("#timer").hasClass('holding')){
+          // Timer not ready so red
+          $("#timer").addClass('text-danger');
+          // Don't let the timer start until the timeout is over
+          timerReady = setTimeout(function(){
+            $("#timer").removeClass('text-danger');
+            // Timer ready so green
+            $("#timer").addClass('text-success');
+            // Set timer as ready
+            timerValidity = true;
+            // Add the holding class after the first detection of a press
+            $("#timer").addClass('holding');
+          }, delay);
+        }
       }
     }
   });
   $(document).keyup(function(e){
     if (e.keyCode == 32) {
+      // On timer launch, clear all the classes and the timeout for the color
+      $("#timer").removeClass('text-danger');
       $("#timer").removeClass('text-success');
+      $("#timer").removeClass('holding');
+      clearTimeout(timerReady);
     }
     if ($("#start_stop").text() == "Stop"){
       $("#start_stop").button().click();
@@ -33,10 +55,11 @@ $(function(){
   });
   // Start/Stop button
   $("#start_stop").button().click(function(){
-    // Start button
-    if($(this).text() == "Start"){ // check button label
+    // Start button ( if the spacebar was pressed too quickly, the function doesn't launch
+    if($(this).text() == "Start" && timerValidity == true){ // check button label
       $(this).html("<span class='ui-button-text'>Stop</span>");
       updateTime(0,0,0,0);
+      timerValidity = false;
     }
     // Stop button
     else if($(this).text() == "Stop"){
@@ -113,7 +136,7 @@ $(function(){
     $("#seconds").html(prependZero(seconds, 2));
     $("#milliseconds").html(prependZero(milliseconds, 3));
     //Check if hours and/or minutes are null, not to display them
-    if ($("#hours").html() == '00'){
+    if ($("#hours").html() === '00'){
       $("#hours, #separatorHours").hide();
     } else {
       $("#hours, #separatorHours").show();
