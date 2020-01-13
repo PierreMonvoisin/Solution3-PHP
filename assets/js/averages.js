@@ -1,3 +1,32 @@
+function unfoldTime(time){
+  if (time === '-'){
+    return time;
+  } else {
+    // Unfold from hours, minutes, seconds and milliseconds to all milliseconds
+    // Just to check
+    console.log(time);
+  }
+}
+// set averages in solves 5, 12 and 50
+if (localStorage.getItem('indexLog')){
+  currentIndex = Number(JSON.parse(localStorage.getItem('indexLog')));
+  // Add solves in localStorage to history
+  var index, single, ao5, ao12, ao50;
+  for (var numberOfSolve = Number(currentIndex); numberOfSolve > 0; numberOfSolve--){
+    // Get all solves in sole history ( typeof number )
+    index = Number(JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`)));
+    single = Number(JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`)));
+    ao5 = Number(JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`)));
+    ao12 = Number(JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`)));
+    // ParseFloat to turn string to number and keep 3 numbers after the dot
+    isNaN(single) ? single = '-': single = parseFloat(single).toFixed(3);
+    isNaN(ao5) ? ao5 = '-': ao5 = parseFloat(ao5).toFixed(3);
+    isNaN(ao12) ? ao12 = '-': ao12 = parseFloat(ao12).toFixed(3);
+    isNaN(ao50) ? ao50 = '-': ao50 = parseFloat(ao50).toFixed(3);
+    // Turn the times from normal format to milliseconds for the averages calculations
+    single = unfoldTime(single); ao5 = unfoldTime(ao5); ao12 = unfoldTime(ao12); ao50 = unfoldTime(ao50);
+  }
+}
 // Calculation of the average of 5 solves
 var solves5 = [], average5;
 function averageOf5(hours, minutes, seconds, milliseconds) {
@@ -10,7 +39,7 @@ function averageOf5(hours, minutes, seconds, milliseconds) {
     // If there is less than 5 solves
     average5 = '-';
   } else {
-    // Get the highest and lowest time ( and their index ) not calculate them in the average
+    // Get the highest and lowest time ( and their index ) not to calculate them in the average
     var maxValue = Math.max(...solves5);
     // ' ... ' in front of an array will convert array values to distinct variables
     var indexMaxValue = solves5.indexOf(Math.max(...solves5));
