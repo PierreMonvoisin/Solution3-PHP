@@ -44,6 +44,11 @@ if (localStorage.getItem('indexLog')){
     }
   }
 }
+// Prepend zeros to the digits in stopwatch
+function prependZero(time, length) {
+  time = new String(time); // stringify time
+  return new Array(Math.max(length - time.length + 1, 0)).join("0") + time;
+}
 // Calculation of the average of 5 solves
 var average5;
 function averageOf5(hours, minutes, seconds, milliseconds) {
@@ -87,12 +92,12 @@ function averageOf5(hours, minutes, seconds, milliseconds) {
     seconds = Math.floor( (average5Milli - (hours * 3600000) - (minutes * 60000)) / 1000 );
     milliseconds = Math.floor(average5Milli - (hours * 3600000) - (minutes * 600000) - (seconds * 1000));
     // Check if hours / hours and minutes are empty not to display
-    average5 = hours + ': ' + minutes + ': ' + seconds + '.' + milliseconds;
+    average5 = prependZero(hours, 2) + ': ' + prependZero(minutes, 2) + ': ' + prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     if (hours == 0){
-      average5 = minutes + ': ' + seconds + '.' + milliseconds;
+      average5 = prependZero(minutes, 2) + ': ' + prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     }
     if (hours == 0 && minutes == 0){
-      average5 = seconds + '.' + milliseconds;
+      average5 = prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     }
   }
 }
@@ -125,12 +130,12 @@ function averageOf12(hours, minutes, seconds, milliseconds) {
     minutes = Math.floor( (average12Milli - (hours * 3600000)) / 60000 );
     seconds = Math.floor( (average12Milli - (hours * 3600000) - (minutes * 60000)) / 1000 );
     milliseconds = Math.floor(average12Milli - (hours * 3600000) - (minutes * 600000) - (seconds * 1000));
-    average12 = hours + ': ' + minutes + ': ' + seconds + '.' + milliseconds;
+    average12 = prependZero(hours, 2) + ': ' + prependZero(minutes, 2) + ': ' + prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     if (hours == 0){
-      average12 = minutes + ': ' + seconds + '.' + milliseconds;
+      average12 = prependZero(minutes, 2) + ': ' + prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     }
     if (hours == 0 && minutes == 0){
-      average12 = seconds + '.' + milliseconds;
+      average12 = prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     }
   }
 }
@@ -163,12 +168,12 @@ function averageOf50(hours, minutes, seconds, milliseconds) {
     minutes = Math.floor( (average50Milli - (hours * 3600000)) / 60000 );
     seconds = Math.floor( (average50Milli - (hours * 3600000) - (minutes * 60000)) / 1000 );
     milliseconds = Math.floor(average50Milli - (hours * 3600000) - (minutes * 600000) - (seconds * 1000));
-    average50 = hours + ': ' + minutes + ': ' + seconds + '.' + milliseconds;
+    average50 = prependZero(hours, 2) + ': ' + prependZero(minutes, 2) + ': ' + prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     if (hours == 0){
-      average50 = minutes + ': ' + seconds + '.' + milliseconds;
+      average50 = prependZero(minutes, 2) + ': ' + prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     }
     if (hours == 0 && minutes == 0){
-      average50 = seconds + '.' + milliseconds;
+      average50 = prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     }
   }
 }
