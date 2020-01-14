@@ -1,6 +1,9 @@
+// Turn time format HH:MM:SS.MMM to only milliseconds
 function unfoldTime(time){
   if (time != '-'){
+    // Delete the dot between the seconds and milliseconds
     time = time.replace(/\./g, '');
+    // Split between hours, minutes and milliseconds
     time = time.split(': ');
     if (time.length == 2){
       time = Number(time[0]) * 60000 + Number(time[1]);
@@ -9,19 +12,19 @@ function unfoldTime(time){
     } else {
       time = Number(time);
     }
-    console.log(time);
   } else {
-    console.log('undefined time');
+    // Empty average
   }
+  // Return the time in milliseconds
+  return time;
 }
-var solves5 = [];
-// set averages in solves 5, 12 and 50
+var solves5 = [], solves12 = [], solves50 = [];
+// Set averages in solves 5, 12 and 50
 if (localStorage.getItem('indexLog')){
   currentIndex = Number(JSON.parse(localStorage.getItem('indexLog')));
   // Add solves in localStorage to history
   var index, single, ao5, ao12, ao50;
   for (var numberOfSolve = Number(currentIndex); numberOfSolve > 0; numberOfSolve--){
-    console.log(numberOfSolve + ' ' + currentIndex)
     // Get all solves in sole history ( strings except index )
     index = Number(JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`)));
     ao5 = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
@@ -29,9 +32,15 @@ if (localStorage.getItem('indexLog')){
     ao50 = JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`));
     // Turn the times from normal format to milliseconds for the averages calculations
     ao5 = unfoldTime(ao5); ao12 = unfoldTime(ao12); ao50 = unfoldTime(ao50);
+    // Add the time to the array of average until it is full minus one solve
     if (numberOfSolve > (Number(currentIndex) - 4 )){
-      if(ao5 != '-'){ solves5.splice(0, 0, ao5); }
-      console.log(solves5);
+      if (ao5 != '-'){ solves5.splice(0, 0, ao5); }
+    }
+    if (numberOfSolve > (Number(currentIndex) - 11 )){
+      if (ao12 != '-'){ solves12.splice(0, 0, ao12); }
+    }
+    if (numberOfSolve > (Number(currentIndex) - 49 )){
+      if (ao50 != '-'){ solves50.splice(0, 0, ao50); }
     }
   }
 }
@@ -88,7 +97,7 @@ function averageOf5(hours, minutes, seconds, milliseconds) {
   }
 }
 // Calculation of the average of 12 solves
-var solves12 = [], average12;
+var average12;
 function averageOf12(hours, minutes, seconds, milliseconds) {
   var average12Milli = hours * 3600000 + minutes * 60000 + seconds * 1000 + milliseconds;  solves12.splice(0, 0, average12Milli);
   if (solves12.length < 12){
@@ -126,7 +135,7 @@ function averageOf12(hours, minutes, seconds, milliseconds) {
   }
 }
 // Calculation of the average of 50 solves
-var solves50 = [], average50;
+var average50;
 function averageOf50(hours, minutes, seconds, milliseconds) {
   var average50Milli = hours * 3600000 + minutes * 60000 + seconds * 1000 + milliseconds;  solves50.splice(0, 0, average50Milli);
   if (solves50.length < 50){
