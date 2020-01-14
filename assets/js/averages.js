@@ -1,41 +1,42 @@
 function unfoldTime(time){
-  if (time === '-'){
-    console.log('nope');
-    return time;
-  } else {
+  if (time != '-'){
     time = time.replace(/\./g, '');
     time = time.split(': ');
     if (time.length == 2){
-
+      time = Number(time[0]) * 60000 + Number(time[1]);
     } else if (time.length == 3){
-
+      time = Number(time[0]) * 3600000 + Number(time[1]) * 60000 + Number(time[2]);
     } else {
-
+      time = Number(time);
     }
     console.log(time);
+  } else {
+    console.log('undefined time');
   }
 }
+var solves5 = [];
 // set averages in solves 5, 12 and 50
 if (localStorage.getItem('indexLog')){
   currentIndex = Number(JSON.parse(localStorage.getItem('indexLog')));
   // Add solves in localStorage to history
   var index, single, ao5, ao12, ao50;
   for (var numberOfSolve = Number(currentIndex); numberOfSolve > 0; numberOfSolve--){
-    // Get all solves in sole history
-
-    // Need to get all the solve in string and not number !!!
-
+    console.log(numberOfSolve + ' ' + currentIndex)
+    // Get all solves in sole history ( strings except index )
     index = Number(JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`)));
-    single = JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`));
     ao5 = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
     ao12 = JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`));
     ao50 = JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`));
     // Turn the times from normal format to milliseconds for the averages calculations
-    single = unfoldTime(single); ao5 = unfoldTime(ao5); ao12 = unfoldTime(ao12); ao50 = unfoldTime(ao50);
+    ao5 = unfoldTime(ao5); ao12 = unfoldTime(ao12); ao50 = unfoldTime(ao50);
+    if (numberOfSolve > (Number(currentIndex) - 4 )){
+      if(ao5 != '-'){ solves5.splice(0, 0, ao5); }
+      console.log(solves5);
+    }
   }
 }
 // Calculation of the average of 5 solves
-var solves5 = [], average5;
+var average5;
 function averageOf5(hours, minutes, seconds, milliseconds) {
   // Transform all parametres to milliseconds
   var average5Milli = hours * 3600000 + minutes * 60000 + seconds * 1000 + milliseconds;
