@@ -1,9 +1,17 @@
 function unfoldTime(time){
   if (time === '-'){
+    console.log('nope');
     return time;
   } else {
-    // Unfold from hours, minutes, seconds and milliseconds to all milliseconds
-    // Just to check
+    time = time.replace(/\./g, '');
+    time = time.split(': ');
+    if (time.length == 2){
+
+    } else if (time.length == 3){
+
+    } else {
+
+    }
     console.log(time);
   }
 }
@@ -13,16 +21,15 @@ if (localStorage.getItem('indexLog')){
   // Add solves in localStorage to history
   var index, single, ao5, ao12, ao50;
   for (var numberOfSolve = Number(currentIndex); numberOfSolve > 0; numberOfSolve--){
-    // Get all solves in sole history ( typeof number )
+    // Get all solves in sole history
+
+    // Need to get all the solve in string and not number !!!
+
     index = Number(JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`)));
-    single = Number(JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`)));
-    ao5 = Number(JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`)));
-    ao12 = Number(JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`)));
-    // ParseFloat to turn string to number and keep 3 numbers after the dot
-    isNaN(single) ? single = '-': single = parseFloat(single).toFixed(3);
-    isNaN(ao5) ? ao5 = '-': ao5 = parseFloat(ao5).toFixed(3);
-    isNaN(ao12) ? ao12 = '-': ao12 = parseFloat(ao12).toFixed(3);
-    isNaN(ao50) ? ao50 = '-': ao50 = parseFloat(ao50).toFixed(3);
+    single = JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`));
+    ao5 = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
+    ao12 = JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`));
+    ao50 = JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`));
     // Turn the times from normal format to milliseconds for the averages calculations
     single = unfoldTime(single); ao5 = unfoldTime(ao5); ao12 = unfoldTime(ao12); ao50 = unfoldTime(ao50);
   }
