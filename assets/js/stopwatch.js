@@ -113,6 +113,35 @@ $(function(){
     time = new String(time); // stringify time
     return new Array(Math.max(length - time.length + 1, 0)).join("0") + time;
   }
+  // Turn time format H:M:S.MM to HH:MM:SS.MMM
+  function correctTime(time){
+    if (time != '-'){
+      // Turn the dot in ': ' to help split the time
+      time = (time.toString()).replace(/\./g, ': ');
+      // Split between hours, minutes, second and milliseconds
+      time = time.split(': ');
+      // Seconds and milli
+      if (time.length == 2){
+        time[1] = prependZero(time[1], 3);
+        time = time[0] + '.' + time[1];
+      // Minutes, seconds and milli
+      } else if (time.length == 3){
+        time[1] = prependZero(time[1], 2);
+        time[2] = prependZero(time[2], 3);
+        time = time[0] + ': ' + time[1] + '.' + time[2];
+      // Hours, minutes, seconds and milli
+      } else if (time.length == 4){
+        time[1] = prependZero(time[1], 2);
+        time[2] = prependZero(time[2], 2);
+        time[3] = prependZero(time[3], 3);
+        time = time[0] + ': ' + time[1] + ': ' + time[2] + '.' + time[3];
+      } else {
+        time = Number(time);
+      }
+    }
+    // Return the time in milliseconds
+    return time;
+  }
   // Check for solves in the localStorage to display them on load
   if (localStorage.getItem('indexLog')){
     currentIndex = Number(JSON.parse(localStorage.getItem('indexLog')));
@@ -128,8 +157,8 @@ $(function(){
       ao12 = Number(JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`)));
       // Check if averages are empty
       // ParseFloat to turn string to number and keep 3 numbers after the dot
-      isNaN(ao5) ? ao5 = '-': ao5 = parseFloat(ao5).toFixed(3);
-      isNaN(ao12) ? ao12 = '-': ao12 = parseFloat(ao12).toFixed(3);
+      isNaN(ao5) ? ao5 = '-': ao5 = correctTime(parseFloat(ao5));
+      isNaN(ao12) ? ao12 = '-': ao12 = correctTime(parseFloat(ao12));
       // Go to solves5 [];
       // Create new line to put the informations in solve history
       var tr, _tr = '</tr>', tdSide, td1, td2, _td = '</td>';
@@ -137,11 +166,11 @@ $(function(){
       tdSide = '<td class="py-1 px-2 border border-light border-left-0 border-right-0 border-top-0">';
       td1 = '<td class="py-1 px-2 border border-light border-top-0">';
       td2 = '<td class="py-1 px-2 border border-light border-left-0 border-top-0">';
-      $('#solveList tbody').append(tr + '\n' + tdSide + '#' + index + _td + '\n' + td1 + parseFloat(single).toFixed(3) + _td + '\n' + td2 + ao5 + _td + '\n' + tdSide + ao12 + _td + _tr);
+      $('#solveList tbody').append(tr + '\n' + tdSide + '#' + index + _td + '\n' + td1 + correctTime(single) + _td + '\n' + td2 + ao5 + _td + '\n' + tdSide + ao12 + _td + _tr);
       // Do this at the last solve
       if (numberOfSolve == currentIndex){
         ao50 = Number(JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`)));
-        isNaN(ao50) ? ao50 = '-': ao50 = parseFloat(ao50).toFixed(3);
+        isNaN(ao50) ? ao50 = '-': ao50 = correctTime(parseFloat(ao50));
         // Put solve in solve statistics
         $('#sideStatIndex').html(index);
         $('#sideStatSingle').html(single);
