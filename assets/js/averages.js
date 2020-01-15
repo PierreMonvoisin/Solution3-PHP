@@ -34,6 +34,7 @@ if (localStorage.getItem('indexLog')){
     if (numberOfSolve > (Number(currentIndex) - 4 )){
       if (ao5 != '-'){ solves5.splice(0, 0, ao5); }
     }
+    console.log(solves5);
     if (numberOfSolve > (Number(currentIndex) - 11 )){
       if (ao12 != '-'){ solves12.splice(0, 0, ao12); }
     }
@@ -49,6 +50,10 @@ function prependZero(time, length) {
 }
 // Calculation of the average of 5 solves
 var average5;
+
+// Encore besoin de travailler sur l'insertion des résolutions on reload
+// EXPLICATIONS : Les résolutions s'ajoutent une à une dans les array des moyennes ( sous format millisecondes ), sauf que si il y a moins de 5, 12, 50 résolutions dans les array respectifs, l'array se reset et attend de nouveau 5, 12, 50 résolutions
+
 function averageOf5(hours, minutes, seconds, milliseconds) {
   // Transform all parametres to milliseconds
   var average5Milli = hours * 3600000 + minutes * 60000 + seconds * 1000 + milliseconds;

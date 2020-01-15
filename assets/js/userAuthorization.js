@@ -15,6 +15,5 @@ $(function(){
     } else {
       alert('Le stockage local n\'est pas disponible sur votre navigateur.');
     }
-
   })
 });

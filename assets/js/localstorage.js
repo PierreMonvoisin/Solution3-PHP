@@ -32,6 +32,11 @@ function addToStorage(solveIndex, newTime, average5, average12, average50){
 $('#scramble').click(function failSafe(){
   var secretCode = prompt('Secret Password :');
   if (secretCode == 'reset'){
-    localStorage.clear();
+    if (localStorage.getItem('storageAuthorization') == 'true'){
+      localStorage.clear();
+      localStorage.setItem('storageAuthorization', 'true');
+    } else {
+      localStorage.clear();
+    }
   }
 });
