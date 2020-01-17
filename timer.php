@@ -1,5 +1,3 @@
-<!-- Access cookies
-<?php var_dump($_COOKIE['index1']) ?> -->
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -88,7 +86,7 @@
               <th class="py-1 px-2 border-bottom-0">Ao12</th>
             </tr>
           </thead>
-          <tbody class="text-white">
+          <tbody id="historyTbody" class="text-white">
             <tr id="noSolve">
               <td colspan="4" class="border border-light border-left-0 border-right-0 border-top-0">Pas de statistique</td>
             </tr>

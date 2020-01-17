@@ -152,9 +152,9 @@ $(function(){
     for (var numberOfSolve = Number(currentIndex); numberOfSolve > 0; numberOfSolve--){
       // ( typeof number )
       index = Number(JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`)));
-      single = Number(JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`)));
-      ao5 = Number(JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`)));
-      ao12 = Number(JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`)));
+      single = JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`));
+      ao5 = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
+      ao12 = JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`));
       // Check if averages are empty
       // ParseFloat to turn string to number and keep 3 numbers after the dot
       isNaN(ao5) ? ao5 = '-': ao5 = correctTime(parseFloat(ao5));
@@ -169,11 +169,11 @@ $(function(){
       $('#solveList tbody').append(tr + '\n' + tdSide + '#' + index + _td + '\n' + td1 + correctTime(single) + _td + '\n' + td2 + ao5 + _td + '\n' + tdSide + ao12 + _td + _tr);
       // Do this at the last solve
       if (numberOfSolve == currentIndex){
-        ao50 = Number(JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`)));
+        ao50 = JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`));
         isNaN(ao50) ? ao50 = '-': ao50 = correctTime(parseFloat(ao50));
         // Put solve in solve statistics
         $('#sideStatIndex').html(index);
-        $('#sideStatSingle').html(single);
+        $('#sideStatSingle').html(correctTime(single));
         $('#sideStatAo5').html(ao5);
         $('#averageOf5 span').html(ao5);
         $('#sideStatAo12').html(ao12);

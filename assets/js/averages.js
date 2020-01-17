@@ -16,30 +16,31 @@ function unfoldTime(time){
   // Return the time in milliseconds
   return time;
 }
-var solves5 = [], solves12 = [], solves50 = [];
 // Set averages in solves 5, 12 and 50
+var solves5 = [], solves12 = [], solves50 = [];
 if (localStorage.getItem('indexLog')){
-  currentIndex = Number(JSON.parse(localStorage.getItem('indexLog')));
+  var currentIndex = Number(JSON.parse(localStorage.getItem('indexLog')));
   // Add solves in localStorage to history
   var index, single, ao5, ao12, ao50;
   for (var numberOfSolve = Number(currentIndex); numberOfSolve > 0; numberOfSolve--){
     // Get all solves in sole history ( strings except index )
     index = Number(JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`)));
+    single = JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`));
     ao5 = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
     ao12 = JSON.parse(localStorage.getItem(`averageOf12History${numberOfSolve}`));
     ao50 = JSON.parse(localStorage.getItem(`averageOf50History${numberOfSolve}`));
-    // Turn the times from normal format to milliseconds for the averages calculations
-    ao5 = unfoldTime(ao5); ao12 = unfoldTime(ao12); ao50 = unfoldTime(ao50);
+    // Turn the time from normal format to milliseconds for the averages calculations
+    single = unfoldTime(single);
     // Add the time to the array of average until it is full minus one solve
-    if (numberOfSolve > (Number(currentIndex) - 4 )){
-      if (ao5 != '-'){ solves5.splice(0, 0, ao5); }
+    if (solves5.length < 5){
+      solves5.splice(0, 0, single);
     }
     console.log(solves5);
-    if (numberOfSolve > (Number(currentIndex) - 11 )){
-      if (ao12 != '-'){ solves12.splice(0, 0, ao12); }
+    if (solves12.length < 12){
+      solves12.splice(0, 0, single);
     }
-    if (numberOfSolve > (Number(currentIndex) - 49 )){
-      if (ao50 != '-'){ solves50.splice(0, 0, ao50); }
+    if (solves50.length < 50){
+      solves50.splice(0, 0, single);
     }
   }
 }
@@ -50,10 +51,6 @@ function prependZero(time, length) {
 }
 // Calculation of the average of 5 solves
 var average5;
-
-// Encore besoin de travailler sur l'insertion des résolutions on reload
-// EXPLICATIONS : Les résolutions s'ajoutent une à une dans les array des moyennes ( sous format millisecondes ), sauf que si il y a moins de 5, 12, 50 résolutions dans les array respectifs, l'array se reset et attend de nouveau 5, 12, 50 résolutions
-
 function averageOf5(hours, minutes, seconds, milliseconds) {
   // Transform all parametres to milliseconds
   var average5Milli = hours * 3600000 + minutes * 60000 + seconds * 1000 + milliseconds;
@@ -94,6 +91,7 @@ function averageOf5(hours, minutes, seconds, milliseconds) {
     minutes = Math.floor( (average5Milli - (hours * 3600000)) / 60000 );
     seconds = Math.floor( (average5Milli - (hours * 3600000) - (minutes * 60000)) / 1000 );
     milliseconds = Math.floor(average5Milli - (hours * 3600000) - (minutes * 600000) - (seconds * 1000));
+    console.log(solves5);
     // Check if hours / hours and minutes are empty not to display
     average5 = hours + ': ' + prependZero(minutes, 2) + ': ' + prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     if (hours == 0){

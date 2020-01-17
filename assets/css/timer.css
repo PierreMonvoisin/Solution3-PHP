@@ -36,6 +36,13 @@ html, body {
   overflow-x: auto;
   overflow-y: scroll;
 }
+/*Is not working*/
+#historyTbody {
+  height: 10px;
+}
+#historyTbody td {
+  height: 10px !important;
+}
 /* Main scramble and timer */
 #scramble, #timer {
   position: relative;
