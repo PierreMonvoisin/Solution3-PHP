@@ -32,14 +32,13 @@ if (localStorage.getItem('indexLog')){
     // Turn the time from normal format to milliseconds for the averages calculations
     single = unfoldTime(single);
     // Add the time to the array of average until it is full minus one solve
-    if (solves5.length < 5){
+    if (solves5.length < 4){
       solves5.splice(0, 0, single);
     }
-    console.log(solves5);
-    if (solves12.length < 12){
+    if (solves12.length < 11){
       solves12.splice(0, 0, single);
     }
-    if (solves50.length < 50){
+    if (solves50.length < 49){
       solves50.splice(0, 0, single);
     }
   }
@@ -65,10 +64,10 @@ function averageOf5(hours, minutes, seconds, milliseconds) {
     var maxValue = Math.max(...solves5);
     // ' ... ' in front of an array will convert array values to distinct variables
     var indexMaxValue = solves5.indexOf(Math.max(...solves5));
+    solves5.splice(indexMaxValue, 1);
     var minValue = Math.min(...solves5);
     var indexMinValue = solves5.indexOf(Math.min(...solves5));
     // Delete the max and min time form the array
-    solves5.splice(indexMaxValue, 1);
     solves5.splice(indexMinValue, 1);
     // Add all 5 solves together
     for (var i = 0; i < 2; i++){
@@ -91,7 +90,6 @@ function averageOf5(hours, minutes, seconds, milliseconds) {
     minutes = Math.floor( (average5Milli - (hours * 3600000)) / 60000 );
     seconds = Math.floor( (average5Milli - (hours * 3600000) - (minutes * 60000)) / 1000 );
     milliseconds = Math.floor(average5Milli - (hours * 3600000) - (minutes * 600000) - (seconds * 1000));
-    console.log(solves5);
     // Check if hours / hours and minutes are empty not to display
     average5 = hours + ': ' + prependZero(minutes, 2) + ': ' + prependZero(seconds, 2) + '.' + prependZero(milliseconds, 3);
     if (hours == 0){
@@ -111,9 +109,9 @@ function averageOf12(hours, minutes, seconds, milliseconds) {
   } else {
     var maxValue = Math.max(...solves12);
     var indexMaxValue = solves12.indexOf(Math.max(...solves12));
+    solves12.splice(indexMaxValue, 1);
     var minValue = Math.min(...solves12);
     var indexMinValue = solves12.indexOf(Math.min(...solves12));
-    solves12.splice(indexMaxValue, 1);
     solves12.splice(indexMinValue, 1);
     for (var i = 0; i < 9; i++){
       average12Milli += solves12[i];
@@ -149,9 +147,9 @@ function averageOf50(hours, minutes, seconds, milliseconds) {
   } else {
     var maxValue = Math.max(...solves50);
     var indexMaxValue = solves50.indexOf(Math.max(...solves50));
+    solves50.splice(indexMaxValue, 1);
     var minValue = Math.min(...solves50);
     var indexMinValue = solves50.indexOf(Math.min(...solves50));
-    solves50.splice(indexMaxValue, 1);
     solves50.splice(indexMinValue, 1);
     for (var i = 0; i < 47; i++){
       average50Milli += solves50[i];

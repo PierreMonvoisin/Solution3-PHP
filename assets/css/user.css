@@ -29,7 +29,7 @@ html {
 }
 #friends .card-body {
   height: 52vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #history {
   max-height: 55vh;

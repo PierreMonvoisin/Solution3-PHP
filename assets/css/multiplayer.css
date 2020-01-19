@@ -11,7 +11,7 @@ body {
   height: 47vh;
 }
 #algoCard .card-body {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #algoCard table {
   white-space: nowrap;
