@@ -1,5 +1,5 @@
 $(function () {
-  var closingTime, position = 'open';
+  var position = 'open';
   // Check mouse position to trigger top navigation tabs
   $(document).bind('mousewheel', function (e) {
     if (e.originalEvent.wheelDelta > 0) {
