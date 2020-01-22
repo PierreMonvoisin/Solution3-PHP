@@ -1,21 +1,28 @@
-$(function(){
-  var mouseX, mouseY, closing;
+$(function () {
+  var closingTime, position = 'open';
   // Check mouse position to trigger top navigation tabs
-  $(document).mousemove(function(e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
-    if ( mouseY < 20) {
-      $('header').slideDown('fast');
-    } else if ( mouseY >= 20 && mouseY <= ($('header').height() + 20)){
-      clearTimeout(closing);
-    } else if ( mouseY > ($('header').height() + 20)) {
-      closing = setTimeout(function(){ $('header').slideUp('slow'); }, 2000);
+  $(document).bind('mousewheel', function (e) {
+    console.log(e.originalEvent.wheelDelta);
+    if (e.originalEvent.wheelDelta > 0) {
+      headerOpening(e);
+    } else if (e.originalEvent.wheelDelta < 0) {
+      headerClosing(e);
     }
   });
-  $(document).bind('mousewheel', function(e){
-    if (e.originalEvent.wheelDelta / 120 > 0) {
-      console.log('up by ' + $(document).scrollTop());
-      $('header').slideDown('fast');
+
+  function headerClosing(e) {
+    if (position === 'open' && $(document).scrollTop() < 5) {
+        $('header').slideUp('slow', function () {
+        position = 'closed';
+      });
     }
-  });
+  }
+
+  function headerOpening(e) {
+    if (position === 'closed' && $(document).scrollTop() < 5) {
+        $('header').slideDown('slow', function () {
+        position = 'open';
+      });
+    }
+  }
 });

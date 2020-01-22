@@ -37,7 +37,7 @@ html {
 }
 #history .card-body {
   height: 52vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #history td {
   background-color: white;
