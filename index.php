@@ -14,35 +14,8 @@
 </head>
 <body class="bg-gainsboro">
 
-  <header class="bg-taupe row m-0">
-    <!-- Nav tabs -->
-    <div id="topTabs" class="col-6 p-0">
-      <ul class="nav nav-tabs nav-fill">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="timer.php">Timer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="learningMenu.php">Leçons</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="multiplayer.php">Multi-joueurs</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-5 pr-0">
-      <form class="d-flex mr-1 h-100">
-        <input type="text" class="form-control h-100" id="search" placeholder="Chercher sur le site ...">
-        <input type="submit" class="btn bg-taupe-light text-light h-100 ml-1" value='Valider'>
-      </form>
-    </div>
-    <div class="col p-0">
-      <button type="submit" class="btn btn-block bg-taupe-light h-100"><a href="user.php" class="text-decoration-none text-light stretched-link">Compte</a></button>
-    </div>
-  </header>
-  <!-- Button -->
+  <?php include 'header.php'; ?>
+  <!-- Buttons -->
   <div id="mainBody" class="row m-0">
     <h1 id="mainTitle" class="col-12 mt-5 text-center">Welcome to the Jungle</h1>
     <div class="btn-group top-button-group btn-group-lg mt-5 mb-3 mx-auto col-8" role="group">

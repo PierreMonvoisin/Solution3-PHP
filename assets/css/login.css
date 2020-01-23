@@ -1,0 +1,31 @@
+html, body {
+		max-height: 100vh;
+		max-width: 100vw;
+		scroll-behavior: smooth;
+		overflow: hidden;
+}
+
+body {
+		max-height: 100vh;
+}
+
+#loginContainer {
+		height: 100vh;
+		width: 100vw;
+}
+
+.card {
+		min-height: 30vh;
+		height: auto;
+		width: 40vw;
+}
+
+#avatarContainer {
+		border-radius: 25%;
+		width: auto;
+}
+
+#topAvatar {
+		border-radius: 50%;
+		height: 20vh;
+}
