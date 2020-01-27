@@ -7,6 +7,9 @@ html, body {
 body {
 		max-height: 100vh;
 }
+form .btn {
+	width: 50%;
+}
 #loginContainer {
 		height: 100vh;
 		width: 100vw;
@@ -27,4 +30,14 @@ body {
 		border-radius: 50%;
 		height: 20vh;
 		width: 20vh;
+}
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+	form .btn {
+		width: 100%;
+		margin-top: 1%;
+	}
+	.card {
+		width: 65vw;
+	}
 }
