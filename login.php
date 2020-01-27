@@ -20,7 +20,7 @@
    <div class="card m-auto pt-3 shadow-lg" id="loginCard">
      <div class="card-body">
        <h3 class="card-title text-center mb-4">Connection</h3>
-       <form id="loginForm" action="login.php" method="post" autocomplete="on">
+       <form id="loginForm" action="user.php" method="post" autocomplete="on">
          <div class="form-group row">
            <label for="loginMail" class="col-sm-3 col-form-label">Email</label>
            <div class="col-sm-9">
@@ -35,7 +35,7 @@
          </div>
          <div class="form-group row">
            <div class="col-sm-9 offset-sm-3 d-flex flex-column">
-             <button type="submit" class="btn btn-primary w-50">Se connecter</button>
+             <button type="submit" class="btn btn-success w-50">Se connecter</button>
              <a href="#!" class="pt-3">Mot de passe oublié ?</a>
            </div>
          </div>
@@ -54,7 +54,7 @@
      </div>
      <div class="card-body">
        <h3 class="card-title text-center">Nouveau Compte</h3>
-       <form id="newUserForm" action="login.php" method="post" autocomplete="on">
+       <form id="newUserForm" action="user.php" method="post" autocomplete="on">
          <div class="form-group row">
            <label for="newMail" class="col-sm-3 col-form-label">Email</label>
            <div class="col-sm-9">
@@ -75,8 +75,8 @@
          </div>
          <div class="form-group row">
            <div class="col-sm-9 offset-sm-3 d-flex">
-             <button type="submit" class="btn btn-primary w-50 mr-1">Créer votre compte</button>
-             <button name="connected" type="submit" id="loginButton" class="btn btn-primary w-50">Se connecter</button>
+             <button type="submit" formactin="user.php" class="btn btn-success w-50 mr-1">Créer votre compte</button>
+             <button formaction="login.php" name="connected" type="submit" id="loginButton" class="btn btn-info w-50">Se connecter</button>
            </div>
          </div>
        </form>
