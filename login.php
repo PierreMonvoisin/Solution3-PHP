@@ -55,7 +55,7 @@
      <div class="card-body">
        <h3 class="card-title text-center">Nouveau Compte</h3>
        <form id="newUserForm" action="user.php" method="post" autocomplete="on">
-         <input id="file-input" name="avatarFile" class="d-none" type="file"/>
+         <input id="file-input" name="avatarFile" class="form-control" type="file"/>
          <div class="form-group row">
            <label for="username" class="col-xl-3 col-form-label">Nom d'utilisateur</label>
            <div class="col-xl-9">

@@ -31,6 +31,9 @@ form .btn {
 		height: 20vh;
 		width: 20vh;
 }
+#file-input {
+	visibility: hidden;
+}
 /* Media Queries */
 @media only screen and (max-width: 768px) {
 	form .btn {
