@@ -7,10 +7,10 @@ $(function(){
     $('#topAvatar').attr('src', 'https://image.flaticon.com/icons/svg/163/163801.svg');
   })
   var message = 'ERROR', validity = false;
-  var errorLog = [], formInfos;
+  var errorLog = [], formInfos = [[], false, 'ERROR'];
   // Check all form inputs
   function checkInputs() {
-    errorLog = [], validity = false;
+    errorLog = [], validity = false, formInfos = [[], false, 'ERROR'];
     // Check for the form to create a new user
     $('#newUserCard :input[class=form-control]').each(function(){
       if (($(this).val()).trim() === ''){
@@ -18,6 +18,7 @@ $(function(){
       }
       if (errorLog.length > 0){
         message = 'Veuillez renseigner tous les champs';
+        validity = false;
       } else {
         message = 'Merci d\'avoir renseigné tous les champs';
         validity = true;
@@ -27,7 +28,7 @@ $(function(){
     });
     var [errorLog, validity, message] = formInfos;
     // If the new user form is empty, check the login form
-    if (errorLog.length == 0){
+    if (errorLog.length === 0){
       // Reset the error logs
       errorLog = [];
       $('#loginCard :input[class=form-control]').each(function(){
@@ -36,6 +37,7 @@ $(function(){
         }
         if (errorLog.length > 0){
           message = 'Veuillez renseigner tous les champs';
+          validity = false;
         } else {
           message = 'Merci d\'avoir renseigné tous les champs';
           validity = true;
@@ -48,13 +50,13 @@ $(function(){
   }
   $('.card input').blur(function(){
     var results = checkInputs();
-    console.log('final result is :');
-    console.log(results);
+    console.warn('final result is :');
+    console.warn(results);
     var [errors, status, message] = results;
     if (status && errors.length == 0){
       alert(':D');
     } else if (errors.length > 0){
-      alert(':C');
+      // alert(':C');
     }
   })
 });
