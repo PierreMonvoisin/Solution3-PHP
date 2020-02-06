@@ -99,6 +99,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="assets/js/header.js"></script>
 <script src="assets/js/userAuthorization.js"></script>
+<script src="assets/js/loginForm-inputValidation.js"></script>
 <script src="assets/js/login.js"></script>
 </body>
 </html>
