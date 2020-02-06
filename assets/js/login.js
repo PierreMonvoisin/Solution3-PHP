@@ -59,16 +59,21 @@ $(function(){
     console.warn(results);
     var [values, errors, status, message] = results;
     if (status && errors.length == 0){
-      alert(':D');
       values.length === 2 ? loginValidity = loginValidate(values) : newUserValidity = newUserValidate(values);
       if (typeof newUserValidity != 'boolean' && newUserValidity != ''){
-        // Display error message
-      } else if (! loginValidity){
-        // Display error message
+        $('.outputMessage').text(newUserValidity);
+      } else if (newUserValidity){
+        $('.outputMessage').text('Tous les champs sont correctes');
+        $('button[disabled]').attr('disabled', false);
       }
-      // Activate submit button
+      if (loginValidity){
+        $('.outputMessage').text('Tous les champs sont correctes');
+        $('button[disabled]').attr('disabled', false);
+      } else {
+        $('.outputMessage').text('Veuillez bien renseigner tous les champs');
+      }
     } else if (errors.length > 0){
-      // Display error message
+      $('.outputMessage').text('Veuillez bien renseigner tous les champs');
     }
   })
 });

@@ -20,6 +20,7 @@
    <div class="card m-auto pt-3 shadow-lg" id="loginCard">
      <div class="card-body">
        <h3 class="card-title text-center mb-4">Connection</h3>
+       <h4 class="text-center outputMessage"></h4>
        <form id="loginForm" action="user.php" method="post" autocomplete="on">
          <div class="form-group row">
            <label for="loginMail" class="col-xl-3 col-form-label">Email</label>
@@ -54,6 +55,7 @@
      </div>
      <div class="card-body">
        <h3 class="card-title text-center">Nouveau Compte</h3>
+       <h4 class="text-center outputMessage"></h4>
        <form id="newUserForm" action="user.php" method="post" autocomplete="on">
          <input id="file-input" name="avatarFile" class="form-control" type="file"/>
          <div class="form-group row">
