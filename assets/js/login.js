@@ -1,16 +1,5 @@
 $(function(){
   var topAvatar = 'default';
-  // Change avatar image on mouse hover
-  $('#avatarContainer').mouseenter(function(){
-    if (topAvatar != 'set'){
-      $('#topAvatar').attr('src', 'assets/img/addPhotoAvatar.png');
-    }
-  })
-  $('#avatarContainer').mouseleave(function(){
-    if (topAvatar != 'set'){
-      $('#topAvatar').attr('src', 'https://image.flaticon.com/icons/svg/163/163801.svg');
-    }
-  })
   function generateAvatar() {
     // Declare variables (faces, probabilities ...)
     var faces = ['U', 'D', 'L', 'R', 'F', 'B'];
@@ -52,9 +41,17 @@ $(function(){
       numberOfMoves++;
     }
     scramble = scramble.join('');
-    urlComposition = 'visualcube.php?' + 'fmt=png&' + 'bg=t&' + 'pzl=3&' + 'alg=' + scramble;
-    $('#topAvatar').attr('src', urlComposition);
+    userAvatarUrl = 'visualcube.php?' + 'fmt=png&' + 'bg=t&' + 'pzl=3&' + 'alg=' + scramble;
+    $('#topAvatar').attr('src', userAvatarUrl);
     topAvatar = 'set';
+    if (typeof(Storage) != "undefined") {
+      localStorage.setItem('userAvatarUrl', JSON.stringify(userAvatarUrl));
+    } else {
+      // Alert if browser does not support local storage function
+      alert('Désolé, notre navigateur ne supporte pas le local storage');
+      // Redirect the window after 3 seconds
+      setTimeout(function(){ location.href = "https://www.google.com/"; }, 3000);
+    }
   }
   var message = 'ERROR', validity = false;
   var errorLog = [], valueLog = [], formInfos = [[], false, 'ERROR'];
@@ -105,26 +102,28 @@ $(function(){
   $('.card input').blur(function(){
     var results = checkInputs();
     var loginValidity = '', newUserValidity = '';
-    console.warn('final result is :');
-    console.warn(results);
+    // console.warn('final result is :');
+    // console.warn(results);
     var [values, errors, status, message] = results;
     if (status && errors.length == 0 && ( values.length == 2 || values.length == 4 ) ){
       values.length === 2 ? loginValidity = loginValidate(values) : newUserValidity = newUserValidate(values);
       if (typeof newUserValidity != 'boolean' && newUserValidity != ''){
         $('.outputMessage').text(newUserValidity);
       } else if (newUserValidity){
-        $('.outputMessage').text('Tous les champs sont correctes');
+        $('.outputMessage').text(message);
         $('button[disabled]').attr('disabled', false);
-        generateAvatar();
+        if (topAvatar != 'set'){
+          generateAvatar();
+        }
       }
       if (loginValidity && typeof newUserValidity != 'boolean'){
-        $('.outputMessage').text('Tous les champs sont correctes');
+        $('.outputMessage').text(message);
         $('button[disabled]').attr('disabled', false);
       } else {
-        $('.outputMessage').text('Veuillez bien renseigner tous les champs');
+        $('.outputMessage').text(message);
       }
     } else if (errors.length > 0){
-      $('.outputMessage').text('Veuillez bien renseigner tous les champs');
+      $('.outputMessage').text(message);
     }
   })
 });

@@ -1,6 +1,12 @@
 $(function(){
   var lastIndex, lastSingle, lastAo5, lastAo12, lastAo50;
   lastIndex = lastSingle = lastAo5 = lastAo12 = lastAo50 = 0;
+  // Add avatar if it is set in the localStorage
+  if (typeof(Storage) != "undefined") {
+    if (localStorage.getItem('userAvatarUrl')){
+      $('#topAvatar').attr('src', JSON.parse(localStorage.getItem('userAvatarUrl')));
+    }
+  }
   // Prepend zeros to the digits in stopwatch
   function prependZero(time, length) {
     time = new String(time); // stringify time
