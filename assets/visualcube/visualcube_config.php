@@ -9,7 +9,7 @@
 
 	// Default rendering values
 	$DEFAULTS = Array(
-		'fmt'   => 'svg',
+		'fmt'   => 'png',
 		'pzl'   => '3',
 		'size'  => '500',
 		'view'  => '',
@@ -20,7 +20,7 @@
 		'fd'    => '',
 		'fc'    => '',
 		'sch'   => 'yrbwog',
-		'bg'    => 'white',
+		'bg'    => 't',
 		'cc'    => 'black',
 		'co'    => '100',
 		'fo'    => '100',

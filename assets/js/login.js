@@ -1,5 +1,11 @@
 $(function(){
   var topAvatar = 'default';
+  function sendCookie(name, value){
+    var exDate = new Date();
+    exDate.setTime(exDate.getTime() + (7*24*60*60*1000));
+    var expires = "expires="+ exDate.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
   function generateAvatar() {
     // Declare variables (faces, probabilities ...)
     var faces = ['U', 'D', 'L', 'R', 'F', 'B'];
@@ -41,11 +47,13 @@ $(function(){
       numberOfMoves++;
     }
     scramble = scramble.join('');
+    // Creation of url to put as randomly created scramble of image
     userAvatarUrl = 'visualcube.php?' + 'fmt=png&' + 'bg=t&' + 'pzl=3&' + 'alg=' + scramble;
     $('#topAvatar').attr('src', userAvatarUrl);
     topAvatar = 'set';
     if (typeof(Storage) != "undefined") {
       localStorage.setItem('userAvatarUrl', JSON.stringify(userAvatarUrl));
+      sendCookie('avatarUrl', JSON.stringify(userAvatarUrl));
     } else {
       // Alert if browser does not support local storage function
       alert('Désolé, notre navigateur ne supporte pas le local storage');
@@ -61,7 +69,7 @@ $(function(){
     // Check for the form to create a new user
     $('#newUserCard :input[class=form-control]').each(function(){
       if (($(this).val()).trim() === ''){
-        if ( $(this).attr('id') != 'file-input' ){ errorLog.push($(this).attr('id')) };
+        errorLog.push($(this).attr('id'));
       } else {
         valueLog.push(($(this).val()).trim());
       }

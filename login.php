@@ -1,3 +1,8 @@
+<?php
+if (isset($_COOKIE['avatarUrl'])){
+  echo 'cookie avatarUrl = '.$_COOKIE['avatarUrl'];
+}
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
