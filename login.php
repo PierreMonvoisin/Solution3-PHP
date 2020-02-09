@@ -3,11 +3,12 @@ $error = false; $errorMessage = 'ERROR';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['newSubmit']) || isset($_POST['loginSubmit'])) ){
   $newMail = ''; $newUsername = ''; $newPassword = ''; $newConfirmation = ''; $loginMail = ''; $loginPassword = '';
   if (isset($_POST['newSubmit'])) {
+    if (! empty(trim($_POST['avatarUrl']))){ $avatarUrl = trim($_POST['avatarUrl'], '"'); }
     ! empty(trim($_POST['username'])) ? $newUsername = $_POST['username'] : $newUsername = null;
     ! empty(trim($_POST['newMail'])) ? $newMail = $_POST['newMail'] : $newMail = null;
     ! empty(trim($_POST['newPassword'])) ? $newPassword = $_POST['newPassword'] : $newPassword = null;
     ! empty(trim($_POST['confirmation'])) ? $newConfirmation = $_POST['confirmation'] : $newConfirmation = null;
-    $newUserInfos = ['username'=>$newUsername,'mail'=>$newMail,'password'=>$newPassword,'confirmation'=>$newConfirmation];
+    $newUserInfos = ['avatarUrl'=>$avatarUrl,'username'=>$newUsername,'mail'=>$newMail,'password'=>$newPassword,'confirmation'=>$newConfirmation];
     if (in_array(null, $newUserInfos)){
       $errorMessage = '- Un des champs est incomplet -';
       $error = true;
@@ -75,9 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['newSubmit']) || isse
           <?php } else { ?>
             <h4 class="text-center outputMessage"></h4>
           <?php } ?>
-
-          <!-- Change to user.php  -->
-          <form id="loginForm" action="login.php" method="post" autocomplete="on">
+          <form id="loginForm" action="user.php" method="post" autocomplete="on">
             <div class="form-group row">
               <label for="loginMail" class="col-xl-3 col-form-label">Email</label>
               <div class="col-xl-9">
@@ -114,10 +113,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['newSubmit']) || isse
           <?php } else { ?>
             <h4 class="text-center outputMessage"></h4>
           <?php } ?>
-
-
-          <!-- Change to user.php -->
           <form id="newUserForm" action="login.php" method="post" autocomplete="on">
+            <label for="avatarUrl" class="sr-only">Url de votre avatar</label>
+            <input type="text" name="avatarUrl" id="avatarUrl" class="invisible">
             <div class="form-group row">
               <label for="username" class="col-xl-3 col-form-label">Nom d'utilisateur</label>
               <div class="col-xl-9">
