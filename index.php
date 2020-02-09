@@ -13,7 +13,6 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body class="bg-gainsboro">
-
   <?php include 'header.php'; ?>
   <!-- Buttons -->
   <div id="mainBody" class="row m-0">

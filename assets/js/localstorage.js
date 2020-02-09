@@ -1,6 +1,7 @@
 // Add informations to the local storage
 function addToStorage(solveIndex, newTime, average5, average12, average50){
   // Add stats to local storage
+  if (typeof(Storage) != "undefined") {
     if (localStorage.getItem('indexLog')){
       // Delete last solve
       localStorage.removeItem('indexLog');

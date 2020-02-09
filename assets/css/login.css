@@ -1,35 +1,35 @@
 html, body {
-		max-height: 100vh;
-		max-width: 100vw;
-		scroll-behavior: smooth;
-		overflow: hidden;
+	max-height: 100vh;
+	max-width: 100vw;
+	scroll-behavior: smooth;
+	overflow: hidden;
 }
 body {
-		max-height: 100vh;
+	max-height: 100vh;
 }
 form .btn {
 	width: 50%;
 }
 #loginContainer {
-		height: 100vh;
-		width: 100vw;
+	height: 100vh;
+	width: 100vw;
 }
 .card {
-		min-height: 30vh;
-		height: auto;
-		width: 40vw;
+	min-height: 30vh;
+	height: auto;
+	width: 40vw;
 }
 #avatarContainer {
-		border-radius: 25%;
-		width: auto;
+	border-radius: 25%;
+	width: auto;
 }
 #avatarContainer label:hover {
-		cursor: pointer;
+	cursor: pointer;
 }
 #topAvatar {
-		border-radius: 50%;
-		height: 20vh;
-		width: 20vh;
+	border-radius: 50%;
+	height: 20vh;
+	width: 20vh;
 }
 #file-input {
 	visibility: hidden;

@@ -1,7 +1,9 @@
 $(function(){
   // Set var for timer
-  var hours = minutes = seconds = milliseconds = 0;
-  var prev_hours = prev_minutes = prev_seconds = prev_milliseconds = undefined;
+  var hours, minutes, seconds, milliseconds;
+  hours = minutes = seconds = milliseconds = 0;
+  var prev_hours, prev_minutes, prev_seconds, prev_milliseconds;
+  prev_hours = prev_minutes = prev_seconds = prev_milliseconds = undefined;
   var timeUpdate;
   // Check if hours and/or minutes are null, not to display them
   if ($("#hours").html() == '00'){
@@ -58,14 +60,18 @@ $(function(){
     // Start button ( if the spacebar was pressed too quickly, the function doesn't launch
     if($(this).text() == "Start" && timerValidity == true){ // check button label
       $(this).html("<span class='ui-button-text'>Stop</span>");
+      // Launch the timer
       updateTime(0,0,0,0);
       timerValidity = false;
     }
     // Stop button
     else if($(this).text() == "Stop"){
       $(this).html("<span class='ui-button-text'>Start</span>");
+      // Stop the timer
       clearInterval(timeUpdate);
+      // Add the value to the log
       addToLog(hours, minutes, seconds, milliseconds);
+      // Generate a new scramble
       newScramble();
     }
   });
@@ -124,12 +130,12 @@ $(function(){
       if (time.length == 2){
         time[1] = prependZero(time[1], 3);
         time = time[0] + '.' + time[1];
-      // Minutes, seconds and milli
+        // Minutes, seconds and milli
       } else if (time.length == 3){
         time[1] = prependZero(time[1], 2);
         time[2] = prependZero(time[2], 3);
         time = time[0] + ': ' + time[1] + '.' + time[2];
-      // Hours, minutes, seconds and milli
+        // Hours, minutes, seconds and milli
       } else if (time.length == 4){
         time[1] = prependZero(time[1], 2);
         time[2] = prependZero(time[2], 2);
@@ -142,6 +148,7 @@ $(function(){
     // Return the time in milliseconds
     return time;
   }
+  var currentIndex
   // Check for solves in the localStorage to display them on load
   if (localStorage.getItem('indexLog')){
     currentIndex = Number(JSON.parse(localStorage.getItem('indexLog')));

@@ -4,6 +4,7 @@ $(function(){
   // Add avatar if it is set in the localStorage
   if (typeof(Storage) != "undefined") {
     if (localStorage.getItem('userAvatarUrl')){
+      // Add avatar as the image
       $('#topAvatar').attr('src', JSON.parse(localStorage.getItem('userAvatarUrl')));
     }
   }
@@ -85,7 +86,7 @@ $(function(){
     // Worst solves
     var testWorst, worstSingle, worstAo5, worstAo12, worstAo50;
     testWorst = worstSingle = worstAo5 = worstAo12 = worstAo50 = 0;
-    for (var numberOfSolve = Number(lastIndex); numberOfSolve > 0; numberOfSolve--){
+    for (numberOfSolve = Number(lastIndex); numberOfSolve > 0; numberOfSolve--){
       testWorst = JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`));
       testWorst > worstSingle ? worstSingle = testWorst : worstSingle;
       testWorst = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
@@ -108,7 +109,7 @@ $(function(){
     // Render chart to add DataPoints (necessary !)
     renderChart();
     // Add solves in localStorage to history
-    for (var numberOfSolve = Number(lastIndex); numberOfSolve > 0; numberOfSolve--){
+    for (numberOfSolve = Number(lastIndex); numberOfSolve > 0; numberOfSolve--){
       var index = Number(JSON.parse(localStorage.getItem(`indexHistory${numberOfSolve}`)));
       var single = JSON.parse(localStorage.getItem(`singleHistory${numberOfSolve}`));
       var ao5 = JSON.parse(localStorage.getItem(`averageOf5History${numberOfSolve}`));
@@ -123,7 +124,7 @@ $(function(){
       $('#history tbody').append(tr + '\n' + td + '#' + index + _td + '\n' + td + correctTime(parseFloat(single)) + _td + '\n' + td + ao5 + _td + '\n' + td + ao12 + _td + '\n' + td + ao50 + _td + _tr);
       // Add solves to datapoints for the chart
       if (numberOfSolve > (Number(lastIndex) - 13)){
-          addDataPoints(index, correctTime(parseFloat(single)), correctTime(parseFloat(ao5)), correctTime(parseFloat(ao12)), correctTime(parseFloat(ao50)));
+        addDataPoints(index, correctTime(parseFloat(single)), correctTime(parseFloat(ao5)), correctTime(parseFloat(ao12)), correctTime(parseFloat(ao50)));
       }
     }
   }
