@@ -1,10 +1,14 @@
 $(function(){
   var topAvatar = 'default';
-  function sendCookie(name, value){
-    var exDate = new Date();
-    exDate.setTime(exDate.getTime() + (7*24*60*60*1000));
-    var expires = "expires="+ exDate.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  function sendRequest(value){
+    var data = { avatarUrl: value }
+    $.post('login.php', data);
+  }
+  // Add avatar if it is set in the localStorage
+  if (typeof(Storage) != "undefined") {
+    if (localStorage.getItem('userAvatarUrl')){
+      $('#topAvatar').attr('src', JSON.parse(localStorage.getItem('userAvatarUrl')));
+    }
   }
   function generateAvatar() {
     // Declare variables (faces, probabilities ...)
@@ -53,7 +57,7 @@ $(function(){
     topAvatar = 'set';
     if (typeof(Storage) != "undefined") {
       localStorage.setItem('userAvatarUrl', JSON.stringify(userAvatarUrl));
-      sendCookie('avatarUrl', JSON.stringify(userAvatarUrl));
+      sendRequest(JSON.stringify(userAvatarUrl));
     } else {
       // Alert if browser does not support local storage function
       alert('Désolé, notre navigateur ne supporte pas le local storage');

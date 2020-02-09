@@ -1,6 +1,51 @@
 <?php
-if (isset($_COOKIE['avatarUrl'])){
-  echo 'cookie avatarUrl = '.$_COOKIE['avatarUrl'];
+$error = false; $errorMessage = 'ERROR';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['newSubmit']) || isset($_POST['loginSubmit'])) ){
+  $newMail = ''; $newUsername = ''; $newPassword = ''; $newConfirmation = ''; $loginMail = ''; $loginPassword = '';
+  if (isset($_POST['newSubmit'])) {
+    ! empty(trim($_POST['username'])) ? $newUsername = $_POST['username'] : $newUsername = null;
+    ! empty(trim($_POST['newMail'])) ? $newMail = $_POST['newMail'] : $newMail = null;
+    ! empty(trim($_POST['newPassword'])) ? $newPassword = $_POST['newPassword'] : $newPassword = null;
+    ! empty(trim($_POST['confirmation'])) ? $newConfirmation = $_POST['confirmation'] : $newConfirmation = null;
+    $newUserInfos = ['username'=>$newUsername,'mail'=>$newMail,'password'=>$newPassword,'confirmation'=>$newConfirmation];
+    if (in_array(null, $newUserInfos)){
+      $errorMessage = '- Un des champs est incomplet -';
+      $error = true;
+    } else {
+      if ($newPassword === $newConfirmation){
+        $error = false;
+        require 'assets/formValidation/newUserFormValidation.php';
+        $cleanedNewInfos = validateAllNewInputs($newUserInfos);
+        if (gettype($cleanedNewInfos) != 'string'){
+          // Send to database
+        } else {
+          $errorMessage = $cleanedNewInfos;
+          $error = true;
+        }
+      } else {
+        $errorMessage = '- Le mot de passe est différent de la confirmation -';
+        $error = true;
+      }
+    }
+  } else if (isset($_POST['loginSubmit'])) {
+    $error = false;
+    ! empty(trim($_POST['loginMail'])) ? $loginMail = $_POST['loginMail'] : $loginMail = null;
+    ! empty(trim($_POST['loginPassword'])) ? $loginPassword = $_POST['loginPassword'] : $loginPassword = null;
+    $loginUserInfos = ['mail'=>$loginMail,'password'=>$loginPassword];
+    if (in_array(null, $loginUserInfos)){
+      $errorMessage = '- Un des champs est incomplet -';
+      $error = true;
+    } else {
+      require 'assets/formValidation/loginUserFormValidation.php';
+      $cleanedLoginInfos = validateAllLoginInputs($loginUserInfos);
+      if (gettype($cleanedLoginInfos) != 'string'){
+        // Check with database if user exist
+      } else {
+        $errorMessage = $cleanedLoginInfos;
+        $error = true;
+      }
+    }
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -25,8 +70,14 @@ if (isset($_COOKIE['avatarUrl'])){
       <div class="card m-auto pt-3 shadow-lg" id="loginCard">
         <div class="card-body">
           <h3 class="card-title text-center mb-4">Connection</h3>
-          <h4 class="text-center outputMessage"></h4>
-          <form id="loginForm" action="user.php" method="post" autocomplete="on">
+          <?php if ($error) { ?>
+            <h4 class="text-center"><?= $errorMessage ?></h4>
+          <?php } else { ?>
+            <h4 class="text-center outputMessage"></h4>
+          <?php } ?>
+
+          <!-- Change to user.php  -->
+          <form id="loginForm" action="login.php" method="post" autocomplete="on">
             <div class="form-group row">
               <label for="loginMail" class="col-xl-3 col-form-label">Email</label>
               <div class="col-xl-9">
@@ -41,7 +92,7 @@ if (isset($_COOKIE['avatarUrl'])){
             </div>
             <div class="form-group row">
               <div class="col-xl-9 offset-xl-3 d-flex">
-                <button type="submit" class="btn btn-success mr-1" disabled>Se connecter</button>
+                <button type="submit" name="loginSubmit" class="btn btn-success mr-1" disabled>Se connecter</button>
                 <button type="submit" formaction="login.php" class="btn btn-info">Créer votre compte</button>
               </div>
               <a href="#!" class="offset-md-5 offset-3 pt-3">Mot de passe oublié ?</a>
@@ -58,8 +109,15 @@ if (isset($_COOKIE['avatarUrl'])){
         </div>
         <div class="card-body">
           <h3 class="card-title text-center">Nouveau Compte</h3>
-          <h4 class="text-center outputMessage"></h4>
-          <form id="newUserForm" action="user.php" method="post" autocomplete="on">
+          <?php if ($error) { ?>
+            <h4 class="text-center"><?= $errorMessage ?></h4>
+          <?php } else { ?>
+            <h4 class="text-center outputMessage"></h4>
+          <?php } ?>
+
+
+          <!-- Change to user.php -->
+          <form id="newUserForm" action="login.php" method="post" autocomplete="on">
             <div class="form-group row">
               <label for="username" class="col-xl-3 col-form-label">Nom d'utilisateur</label>
               <div class="col-xl-9">
@@ -86,7 +144,7 @@ if (isset($_COOKIE['avatarUrl'])){
             </div>
             <div class="form-group row">
               <div class="col-xl-9 offset-xl-3 d-md-flex">
-                <button type="submit" formactin="user.php" class="btn btn-success mr-1" disabled>Créer votre compte</button>
+                <button type="submit" name="newSubmit" class="btn btn-success mr-1" disabled>Créer votre compte</button>
                 <button formaction="login.php" name="connected" type="submit" id="loginButton" class="btn btn-info">Se connecter</button>
               </div>
             </div>
