@@ -127,7 +127,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['newSubmit']) || isse
         <div class="bg-secondary mx-auto image-upload" id="avatarContainer">
           <img class="card-img-top" src="https://image.flaticon.com/icons/svg/163/163801.svg" alt="login"
           id="topAvatar"/>
-          <img>
         </div>
         <div class="card-body">
           <h3 class="card-title text-center">Nouveau Compte</h3>

@@ -35,6 +35,11 @@ form .btn {
 	visibility: hidden;
 }
 /* Media Queries */
+@media only screen and (max-width: 1000px) {
+	.card {
+		width: 80vw;
+	}
+}
 @media only screen and (max-width: 768px) {
 	form .btn {
 		width: 100%;

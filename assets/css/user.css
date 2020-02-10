@@ -14,7 +14,7 @@ html {
   height: 100vh;
 }
 #overview {
-  height: 50vh;
+  height: 40vh;
 }
 #overviewStats {
   height: 100%;
@@ -24,7 +24,7 @@ html {
   height: auto;
 }
 #friends {
-  max-height: 55vh;
+  max-height: 35vh;
   overflow: hidden;
 }
 #friends .card-body {
@@ -47,6 +47,17 @@ html {
   html, body {
     overflow-x: hidden;
     overflow-y: scroll;
+  }
+  #overview {
+    height: 65vh;
+  }
+  #overviewStats {
+    height: 30%;
+    min-width: 100%;
+  }
+  #chartContainer {
+    min-width: 100%;
+    height: 50%;
   }
   #overview .card-body {
     flex-direction: column;

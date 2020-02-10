@@ -124,7 +124,7 @@
   <script src="assets/js/header.js"></script>
   <script src="assets/js/userAuthorization.js"></script>
   <script src="assets/js/user.js"></script>
-  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="assets/js/graph.js"></script>
 </body>
 </html>
