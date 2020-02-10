@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
   // Zoom on the right button on list mousover
   $('#default li').mouseover(function(){
     // Get the first class of the list item

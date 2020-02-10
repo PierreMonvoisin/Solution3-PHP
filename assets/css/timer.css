@@ -6,7 +6,7 @@ html, body {
 #menuToggle {
   margin-top: 1%;
   margin-left: 5%;
-  width: 75px;
+  width: 250px;
 }
 /* Side stats */
 #timerContainer {
@@ -19,18 +19,23 @@ html, body {
   width: 100%;
   overflow: hidden;
   position: fixed;
-  bottom: 0%;
-}
-#statsInMenu {
-  padding: 0.15rem 0 0.15rem 0;
+  bottom: 0;
 }
 #sideStats {
   white-space: nowrap;
   width: 33%;
   height: 30vh;
 }
+#statsInMenu {
+  font-size: 1.25rem;
+  padding: 0.15rem 0 0.15rem 0;
+}
+#statsTable {
+  font-size: 1.25rem;
+}
+/* History */
 #solveList {
-  font-size: 0.85em;
+  font-size: 1.25rem;
   width: 67%;
   height: 30vh;
   overflow-x: auto;
@@ -63,6 +68,21 @@ html, body {
   display: none;
 }
 /* Media Queries */
-/* @media only screen and (max-width: 768px) {
-
-} */
+@media only screen and (max-width: 1200px) {
+  #scramble {
+    font-size: 3vw;
+  }
+}
+@media only screen and (max-width: 992px) {
+  #averageOf5, #averageOf12 {
+    font-size: 3.5vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #timer {
+    font-size: 20vw;
+  }
+  #averageOf5, #averageOf12 {
+    font-size: 5vw;
+  }
+}

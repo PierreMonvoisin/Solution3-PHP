@@ -17,12 +17,12 @@
   <?php include 'header.php'; ?>
   <!-- Side Timer -->
   <div id="timerContainer" class="d-flex">
-    <!-- Timer Stats -->
+
     <!-- Side stats button -->
     <div id="timerBody" class="d-flex flex-column">
-      <button id="menuToggle" type="button" class="btn btn-outline-dark">Stats</button>
+      <button id="menuToggle" type="button" class="btn btn-outline-dark">Cacher les statistiques</button>
       <!-- Scramble -->
-      <div class="row text-center m-0">
+      <div class="row text-center mb-0 mx-0 mt-xl-2 mt-lg-5 mt-5">
         <h2 id="scramble" class="mt-4"><span class="py-2 px-2 border border-dark">Error</span></h2>
       </div>
       <!-- Timer -->
@@ -50,32 +50,33 @@
       </div>
       <div id="sideTimer" class="row m-0 bg-secondary">
         <div id="sideStats">
-          <p id="statsInMenu" class="bg-light font-weight-bold text-center mb-0">Statistique</p>
-          <div class="d-flex py-2 text-white">
+          <p id="statsInMenu" class="bg-light font-weight-bold text-center mb-0 py-1">Statistique</p>
+          <div id="statsTable" class="d-flex py-2 text-white">
             <div class="text-left ml-4 mr-0 w-50">
               <div>Numéro : </div>
-              <hr class="p-0 m-0 bg-light">
+              <hr class="p-0 mx-0 my-1 bg-light">
               <div>Temps : </div>
-              <hr class="p-0 m-0 bg-light">
+              <hr class="p-0 m-0 my-1 bg-light">
               <div>Average of 5 : </div>
-              <hr class="p-0 m-0 bg-light">
+              <hr class="p-0 m-0 my-1 bg-light">
               <div>Average of 12 : </div>
-              <hr class="p-0 m-0 bg-light">
+              <hr class="p-0 m-0 my-1 bg-light">
               <div>Average of 50 : </div>
             </div>
             <div class="text-center mr-3 w-50">
               <div>n° <span id="sideStatIndex">0</span></div>
-              <hr class="p-0 m-0 bg-light">
+              <hr class="p-0 m-0 bg-light my-1">
               <div><span id="sideStatSingle">-</span></div>
-              <hr class="p-0 m-0 bg-light">
+              <hr class="p-0 m-0 bg-light my-1">
               <div><span id="sideStatAo5">-</span></div>
-              <hr class="p-0 m-0 bg-light">
+              <hr class="p-0 m-0 bg-light my-1">
               <div><span id="sideStatAo12">-</span></div>
-              <hr class="p-0 m-0 bg-light">
+              <hr class="p-0 m-0 bg-light my-1">
               <div><span id="sideStatAo50">-</span></div>
             </div>
           </div>
         </div>
+
         <!-- Solve history -->
         <table id="solveList" class="table text-center mb-0">
           <thead class="bg-light">
