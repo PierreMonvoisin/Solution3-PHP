@@ -13,75 +13,39 @@ body, #mainMenu, #mainMenu > .row {
   position: relative;
 }
 #TopLeft, #TopRight, #BottomLeft, #BottomRight {
-  width: 50vh;
-  height: 50vh;
-  border-radius: 50%;
+  width: 100%;
+  height: 50%;
   outline: none;
-  position: absolute;
-  z-index: 3;
+  z-index: 2;
 }
 #TopLeft:active, #TopRight:active, #BottomLeft:active, #BottomRight:active {
   transform: scale(0.99);
 }
 /* Top Left button */
-#TopLeft {
-  box-shadow: 3px 6px 2px rgba(0, 0, 0, 0.4);
-  top: -25vh;
-  left: -25vh;
-}
-#TopLeft:active {
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
-}
 #TopLeft img {
-  max-width: 40%;
+  max-width: 80%;
   position: relative;
-  left: 25%;
-  top: 10vh;
 }
 /* Top Right button */
-#TopRight {
-  box-shadow: -3px 6px 2px rgba(0, 0, 0, 0.4);
-  top: -25vh;
-  right: -25vh;
-}
-#TopRight:active {
-  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.6);
-}
 #TopRight img {
-  max-width: 40%;
+  max-width: 80%;
   position: relative;
-  right: 25%;
-  top: 10vh;
 }
 /* Bottom Left button */
 #BottomLeft {
-  box-shadow: 4px -5px 2px rgba(0, 0, 0, 0.4);
-  bottom: -25vh;
-  left: -25vh;
-}
-#BottomLeft:active {
-  box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.6);
+  bottom: 0;
 }
 #BottomLeft img {
-  max-width: 38%;
+  max-width: 75%;
   position: relative;
-  left: 25%;
-  bottom: 10vh;
 }
 /* Bottom Right button */
 #BottomRight {
-  box-shadow: -4px -5px 2px rgba(0, 0, 0, 0.4);
-  bottom: -25vh;
-  right: -25vh
-}
-#BottomRight:active {
-  box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.6);
+  bottom: 0;
 }
 #BottomRight img {
-  max-width: 38%;
+  max-width: 75%;
   position: relative;
-  right: 25%;
-  bottom: 10vh;
   /* Flip horizontaly */
   transform: scaleX(-1);
 }
@@ -89,11 +53,32 @@ body, #mainMenu, #mainMenu > .row {
 #mainLesson {
   height: 100vh;
   overflow-y: auto;
+  padding: 0;
 }
 #mainLesson li:not(.sectionTitle) {
-  height: 20.9vh;
-  max-height: 20.9vh;
+  height: 21vh;
 }
 #mainLesson .sectionTitle {
   font-weight: bold;
+}
+/* Media Queries */
+@media only screen and (max-width: 992px) {
+  #mainLesson {
+    height: 75vh;
+    overflow-y: auto;
+    padding: 0;
+  }
+  #TopLeft, #TopRight, #BottomLeft, #BottomRight {
+    width: 50%;
+    height: 12.5vh;
+    z-index: 2;
+  }
+  #leftButtons, #rightButtons {
+    display: flex;
+    flex-direction: row;
+  }
+  #TopLeft img, #BottomLeft img, #TopRight img, #BottomRight img {
+    width: auto;
+    height: 12vh;
+  }
 }

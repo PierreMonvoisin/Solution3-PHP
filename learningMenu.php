@@ -18,15 +18,15 @@
   <?php include 'header.php'; ?>
   <div id="mainMenu" class="container-fluid p-0">
     <div class="row w-100 p-0 m-0">
-      <div class="col p-0 m-0">
-          <!--Top Left Button-->
-        <button id="TopLeft" type="button" class="btn bg-blue" title="Comment résoudre un rubik's cube"><img src="https://i.pinimg.com/originals/4f/37/4c/4f374c5803ccb759755066a8e887e623.png" alt="3x3 cube"></button>
-          <!--Bottom Left Button-->
-          <button id="BottomLeft" type="button" class="btn btn-light" title="Paramètres"><img src="https://image.flaticon.com/icons/svg/1242/1242443.svg" alt="Settings"></button>
+      <div id="leftButtons" class="col-lg col-12 p-0 m-0">
+        <!--Top Left Button-->
+        <button id="TopLeft" type="button" class="btn bg-blue shadow" title="Comment résoudre un rubik's cube"><img src="https://i.pinimg.com/originals/4f/37/4c/4f374c5803ccb759755066a8e887e623.png" alt="3x3 cube"></button>
+        <!--Bottom Left Button-->
+        <button id="BottomLeft" type="button" class="btn btn-light shadow" title="Paramètres"><img src="https://image.flaticon.com/icons/svg/1242/1242443.svg" alt="Settings"></button>
       </div>
-      <div id="mainLesson" class="col-9">
+      <div id="mainLesson" class="col-lg-9 col-12">
         <ul id="default" class="list-group shadow">
-            <!--! Always keep the " TopLeft " class in first !-->
+          <!--! Always keep the " TopLeft " class in first !-->
           <li class="TopLeft list-group-item bg-blue text-center text-white sectionTitle m-0 py-0">Comment résoudre un rubik's cube</li>
           <li class="TopLeft list-group-item list-group-item-primary">Morbi leo risus</li>
           <li class="TopRight list-group-item bg-green text-center text-white sectionTitle m-0 py-0">Algorithmes et conseils pour s'améliorer</li>
@@ -37,11 +37,11 @@
           <li class="BottomRight list-group-item list-group-item-warning">Vestibulum at eros</li>
         </ul>
       </div>
-      <div class="col p-0 ml-auto mr-0 my-0">
-          <!--Top Right Button-->
-          <button id="TopRight" type="button" class="btn bg-green" title="Algorithmes et conseils"><img src="http://static1.squarespace.com/static/54f2df67e4b079e94c291e4f/t/54f700b9e4b06512fa5f4528/1425473725865/rubiks+cube+corner+permuted?format=1500w" alt="Algorithms"></button>
-          <!--Bottom Right Button-->
-          <button id="BottomRight" type="button" class="btn bg-yellow" title="Rechercher dans les lessons"><img src="https://image.flaticon.com/icons/svg/639/639375.svg" alt="Search"></button>
+      <div id="rightButtons" class="col-lg col-12 p-0 ml-auto mr-0 my-0">
+        <!--Top Right Button-->
+        <button id="TopRight" type="button" class="btn bg-green shadow" title="Algorithmes et conseils"><img src="http://static1.squarespace.com/static/54f2df67e4b079e94c291e4f/t/54f700b9e4b06512fa5f4528/1425473725865/rubiks+cube+corner+permuted?format=1500w" alt="Algorithms"></button>
+        <!--Bottom Right Button-->
+        <button id="BottomRight" type="button" class="btn bg-yellow shadow" title="Rechercher dans les lessons"><img src="https://image.flaticon.com/icons/svg/639/639375.svg" alt="Search"></button>
       </div>
     </div>
   </div>
