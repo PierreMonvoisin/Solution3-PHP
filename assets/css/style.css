@@ -15,16 +15,39 @@ body {
   width: 100px;
   filter: brightness(0)invert(1);
 }
+.bottom-button-group img {
+  width: 100px;
+  filter: brightness(0)invert(1);
+}
 .btnTooLarge {
   width: 40%;
 }
-.left-image {
-  width: 100px;
-  filter: brightness(0)invert(1);
+#mainBody .btn {
+  height: 13vw;
 }
-.right-image {
-  width: 100px;
-  filter: brightness(0)invert(1);
+#topLeftButton {
+  background-image: url('https://image.flaticon.com/icons/svg/942/942187.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+}
+#topRightButton {
+  background-image: url('https://image.flaticon.com/icons/svg/149/149322.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 23%;
+}
+#bottomLeftButton {
+  background-image: url('https://image.flaticon.com/icons/svg/1575/1575104.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+}
+#bottomRightButton {
+  background-image: url('https://image.flaticon.com/icons/svg/978/978012.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35%;
 }
 /* Media Queries */
 /* Mobile phone */
@@ -34,7 +57,7 @@ body {
     flex-direction: column;
     margin-bottom: 0 !important;
   }
-  .btn {
+  #mainBody .btn {
     width: 100%;
     margin-bottom: 3%;
   }
@@ -44,5 +67,31 @@ body {
   }
   body {
     padding-bottom: 5%;
+  }
+  #topLeftButton {
+    background-size: 20%;
+  }
+  #topRightButton {
+    background-size: 20%;
+  }
+  #bottomLeftButton {
+    background-size: 20%;
+  }
+  #bottomRightButton {
+    background-size: 20%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #topLeftButton {
+    background-size: 25%;
+  }
+  #topRightButton {
+    background-size: 25%;
+  }
+  #bottomLeftButton {
+    background-size: 25%;
+  }
+  #bottomRightButton {
+    background-size: 25%;
   }
 }

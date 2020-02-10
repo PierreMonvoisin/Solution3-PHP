@@ -19,16 +19,15 @@
     <h1 id="mainTitle" class="col-12 mt-5 text-center">Welcome to the Jungle</h1>
     <div class="btn-group top-button-group btn-group-lg mt-5 mb-3 mx-auto col-8" role="group">
       <!-- Top Left -->
-      <button type="button" class="btn btn-success mr-3 py-4" data-toggle="tooltip"
-        data-placement="left" title="Compte Personnel"><a href="user.php" class="stretched-link"><img src="https://image.flaticon.com/icons/svg/942/942187.svg" alt="account"></a></button>
+      <button id="topLeftButton" type="button" class="btn btn-success mr-3 py-5" data-toggle="tooltip" data-placement="left" title="Compte Personnel"></button>
       <!-- Top Right -->
-      <button type="button" class="btn btn-primary py-4" data-toggle="tooltip" data-placement="right" title="Chronomètre"><a href="timer.php" class="stretched-link"><img src="https://image.flaticon.com/icons/svg/149/149322.svg" alt="timer"></a></button>
+      <button id="topRightButton" type="button" class="btn btn-primary py-5" data-toggle="tooltip" data-placement="right" title="Chronomètre"></button>
     </div>
     <div class="btn-group bottom-button-group btn-group-lg mb-3 mx-auto col-8" role="group">
       <!-- Bottom Left -->
-      <button type="button" class="btn btnTooLarge btn-warning text-white mr-3 py-4" data-toggle="tooltip" data-placement="left" title="Apprentissage"><a href="learningMenu.php" class="stretched-link"><img class="left-image" src="https://image.flaticon.com/icons/svg/1575/1575104.svg" alt="lessons"></a></button>
+      <button id="bottomLeftButton" type="button" class="btn btnTooLarge btn-warning text-white mr-3 py-5" data-toggle="tooltip" data-placement="left" title="Apprentissage"></button>
       <!-- Bottome Right -->
-      <button type="button" class="btn btn-danger py-4" data-toggle="tooltip" data-placement="right" title="Multijoueurs"><a href="multiplayer.php" class="stretched-link"><img class="right-image" src="https://image.flaticon.com/icons/svg/978/978012.svg" alt="multiplayer"></a></button>
+      <button id="bottomRightButton" type="button" class="btn btn-danger py-5" data-toggle="tooltip" data-placement="right" title="Multijoueurs"></button>
     </div>
   </div>
   <?php // Local storage authorization modal
