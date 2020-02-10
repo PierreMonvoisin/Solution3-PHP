@@ -126,7 +126,7 @@ $(function(){
     formInfos = [valueLog, errorLog, validity, message];
     return formInfos;
   }
-  $('.finalInput').blur(function(){
+  $('#loginContainer :input').blur(function(){
     // Launch the function to collect, sanitize and validate all inputs values
     var results = checkInputs();
     var loginValidity = '', newUserValidity = '';

@@ -28,7 +28,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['newSubmit']) || isse
         // Sanitize and validate all values
         $cleanedNewInfos = validateAllNewInputs($newUserInfos);
         if (gettype($cleanedNewInfos) != 'string'){
-          // Send to database
+          // Add default value to complete all the parametres of the request
+          $cleanedNewInfos['idPersonnalisations'] = 1;
+          $userInfos = $cleanedNewInfos;
+          // Initiate connection to database
+          require_once 'assets/db/connection.php';
+          $database = connectionToDatabase();
+          try {
+            // Déclaration de la requête SQL avec paramètres
+            $stmt = $database->prepare('INSERT INTO `users` (`username`,`mail`,`password`,`avatar_url`,`id_personnalisations`) VALUES (?, ?, ?, ?, ?)');
+            // Execute la requête avec les variables en paramètres
+            $stmt->execute([$userInfos['username'], $userInfos['mail'], $userInfos['password'], $userInfos['avatarUrl'], $userInfos['idPersonnalisations']]);
+            // Réinitialise la requête
+            $stmt = null;
+          } catch (PDOException $e) {
+            echo $$query . '/' . $e->getMessage();
+          }
         } else {
           // If there is an error in the validation, display the appropriate error message
           $errorMessage = $cleanedNewInfos;
@@ -74,15 +89,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['newSubmit']) || isse
   <title>Login - Solution³</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/scrollbar.css">
   <link rel="stylesheet" type="text/css" href="assets/css/colorPalette.css">
   <link rel="stylesheet" type="text/css" href="assets/css/header.css">
   <link rel="stylesheet" type="text/css" href="assets/css/userAuthorization.css">
   <link rel="stylesheet" type="text/css" href="assets/css/login.css">
 </head>
-<body class="bg-gainsboro">
+<body class="bg-silver">
   <?php include 'header.php'; ?>
   <div class="container d-flex" id="loginContainer">
     <!-- If the user wants to login instead of signing up -->
