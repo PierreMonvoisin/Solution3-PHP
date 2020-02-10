@@ -8,7 +8,7 @@ body {
   max-height: 100vh;
 }
 #algoCard, #friendsCard, #newsCard, #battleCard {
-  height: 47vh;
+  height: 40vh;
 }
 #algoCard .card-body {
   overflow-y: auto;

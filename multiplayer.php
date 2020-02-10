@@ -16,6 +16,7 @@
   <!-- Header -->
   <?php include 'header.php'; ?>
   <div class="container py-3">
+    <h1 class="text-center my-2">Multijoueurs</h1>
     <div class="row mainRow mb-3">
       <div class="mx-auto card-deck col-md-6">
         <!-- Top left card - Algorithm of the week -->
