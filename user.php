@@ -18,7 +18,9 @@
   <?php include 'header.php'; ?>
   <div class="container-fluid w-100">
     <div class="row bg-taupe">
-      <img id="topAvatar" class="mx-auto my-2 bg-light border border-dark" src="https://image.flaticon.com/icons/svg/163/163801.svg" alt="Avatar Picture">
+      <img id="topAvatar" class="mx-auto my-2 bg-light border border-dark"
+      src="<?= isset($_COOKIE['avatarUrl']) && ! empty($_COOKIE['avatarUrl']) ? $_COOKIE['avatarUrl'] : 'https://image.flaticon.com/icons/svg/163/163801.svg' ?>" 
+      alt="Avatar Picture">
       <h1 class="col-6 text-center text-white my-auto pr-5 pl-0">Compte Personnel</h1>
     </div>
   </div>

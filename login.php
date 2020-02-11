@@ -38,9 +38,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['newSubmit']) || isse
             // Déclaration de la requête SQL avec paramètres
             $stmt = $database->prepare('INSERT INTO `users` (`username`,`mail`,`password`,`avatar_url`,`id_personnalisations`) VALUES (?, ?, ?, ?, ?)');
             // Execute la requête avec les variables en paramètres
-            $stmt->execute([$userInfos['username'], $userInfos['mail'], $userInfos['password'], $userInfos['avatarUrl'], $userInfos['idPersonnalisations']]);
+            $stmtStatus = $stmt->execute([$userInfos['username'], $userInfos['mail'], $userInfos['password'], $userInfos['avatarUrl'], $userInfos['idPersonnalisations']]);
             // Réinitialise la requête
             $stmt = null;
+            // $stmtStatus = boolean
+            if ($stmtStatus){
+              $cookieName = 'connected'; $cookieValue = 'true';
+              // Unix timestamp + (86400 seconds in a day * 7 to make a week)
+              $cookieExpDate = time() + (86400 * 7);
+              // Available on the whole website
+              $cookiePath = '/';
+              setcookie($cookieName, $cookieValue, $cookieExpDate, $cookiePath);
+              // Add simple information to get once the user already logged in
+              setcookie('userMail', $userInfos['mail'], $cookieExpDate, $cookiePath);
+              setcookie('avatarUrl', $userInfos['avatarUrl'], $cookieExpDate, $cookiePath);
+            } else {
+              // Error has occured when adding the patient, display error
+            };
           } catch (PDOException $e) {
             echo $$query . '/' . $e->getMessage();
           }

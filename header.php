@@ -17,6 +17,8 @@
     </ul>
   </div>
   <div class="col p-0 ml-2">
-    <button type="submit" class="btn btn-block bg-taupe-light h-100"><a href="login.php" class="text-decoration-none text-light stretched-link">Compte</a></button>
+    <button type="submit" class="btn btn-block bg-taupe-light h-100">
+      <a href="<?= isset($_COOKIE['connected']) ? 'user.php' : 'login.php' ?>" class="text-decoration-none text-light stretched-link">Compte</a>
+    </button>
   </div>
 </header>
